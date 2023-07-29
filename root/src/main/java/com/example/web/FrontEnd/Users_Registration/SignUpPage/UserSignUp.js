@@ -30,7 +30,7 @@ document.getElementById("signUpForm").addEventListener("submit", function (event
         })
         .then(data => {
             console.log('Login successful!', data);
-            window.location.href = '../LoginPage/UserLoginPage.html';
+            window.location.href = '../LoginPage/index.html';
         })
 
         .catch(error => {
