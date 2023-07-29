@@ -6,8 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <script src="UserLogin.js" defer></script>
+    <script src="../SocialLogin/UserRegistrationGoogle.js" defer></script>
+    <script src="../SocialLogin/UserRegistrationFacebook.js" defer></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
     <link rel="stylesheet" href="UserLoginStyle.css">
+    <link rel="stylesheet" href="../SocialLogin/UserRegistrationSocialMedia.css">
+    <link rel="stylesheet" href="../CommonOperations/CommonStylePages.css">
 </head>
 
 <body>
@@ -24,17 +29,17 @@
         </div>
         <button type="submit" class="btn-login">Login</button>
     </form>
-    <div class="signup">
+    <div class="login">
         <span>Don't have an account?</span>
-        <a href="http://localhost:63342/web/com/example/web/FrontEnd/SignUpPage/UserSignUp.html?_ijt=kcthc2re64btfcud15tag34ggi&_ij_reload=RELOAD_ON_SAVE">Sign Up</a>
+        <a href="http://localhost:63342/web/com/example/web/FrontEnd/Users_Registration/SignUpPage/UserSignUp.html?_ijt=mci1gmfbo5decn5h284vfofi7n&_ij_reload=RELOAD_ON_SAVE">Sign Up</a>
     </div>
     <p id="error-message"></p>
     <div class="separator">
         <span>or</span>
     </div>
     <div class="social-login">
-        <button class="btn-google">Google Login</button>
-        <button class="btn-facebook">Facebook Login</button>
+        <button class="btn-google" onclick=onGoogleSignIn()>Google Login</button>
+        <button class="btn-facebook" onclick=onFacebookSignIn()>Facebook Login</button>
     </div>
 </div>
 </body>

@@ -19,11 +19,18 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    private UserModel getUserOneByEmail(String email, String password) {
+    private UserModel getUserEmailAndPassword(String email, String password) {
         return userRepository.findByEmailAndPassword(email, password);
     }
 
     private UserModel createNewUser(UserModel userModel) {
+        UserModel existingEmail = userRepository.findByEmail(userModel.getEmail());
+
+        System.out.println(existingEmail);
+        if (existingEmail != null) {
+            return null;
+        }
+
         return userRepository.save(userModel);
     }
 
@@ -47,8 +54,8 @@ public class UserService {
         return listAllUsers();
     }
 
-    public UserModel getUserByEmail(String email, String password) {
-        return getUserOneByEmail(email, password);
+    public UserModel getUserByEmailAndPassword(String email, String password) {
+        return getUserEmailAndPassword(email, password);
     }
 
     public UserModel createUser(UserModel userModel) {

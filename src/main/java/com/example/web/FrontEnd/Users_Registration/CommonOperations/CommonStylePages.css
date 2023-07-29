@@ -41,33 +41,6 @@ input {
     font-size: 16px;
 }
 
-.btn-login {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.signup {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.signup span {
-    font-size: 14px;
-    color: #888;
-}
-
-.signup a {
-    color: #007bff;
-    text-decoration: none;
-}
-
 .separator {
     text-align: center;
     margin: 20px 0;
@@ -98,33 +71,6 @@ input {
     left: 50%;
     margin-left: 20px;
 }
-
-.social-login {
-    display: flex;
-    justify-content: space-between;
-}
-
-.btn-google,
-.btn-facebook {
-    flex: 1;
-    padding: 10px;
-    color: #fff;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.btn-google {
-    background-color: #db4a39;
-    margin-right: 10px;
-}
-
-.btn-facebook {
-    background-color: #3b5998;
-    margin-left: 10px;
-}
-
 
 #error-message {
     text-align: center;

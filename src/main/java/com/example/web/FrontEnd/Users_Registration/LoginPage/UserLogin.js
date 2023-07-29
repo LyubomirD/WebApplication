@@ -21,7 +21,7 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
         })
         .then(data => {
             console.log('Login successful!', data);
-            window.location.href = 'http://localhost:63342/web/com/example/web/FrontEnd/nextPage.html?_ijt=t8i7er00dtne4cikcrai8n93un&_ij_reload=RELOAD_ON_SAVE';
+            window.location.href = '../../nextPage.html';
         })
         .catch(error => {
             console.error('Error:', error);
@@ -29,5 +29,3 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
             errorMessage.textContent = 'Invalid email or password!';
         });
 });
-
-//TODO Google login/ sign up/in to be functional

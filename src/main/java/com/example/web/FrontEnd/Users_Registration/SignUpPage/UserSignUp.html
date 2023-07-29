@@ -4,9 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Sign Up</title>
     <script src="UserSignUp.js" defer></script>
     <link rel="stylesheet" href="UserSignUpStyle.css">
+    <script src="../SocialLogin/UserRegistrationGoogle.js" defer></script>
+    <script src="../SocialLogin/UserRegistrationFacebook.js" defer></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+    <link rel="stylesheet" href="../SocialLogin/UserRegistrationSocialMedia.css">
+    <link rel="stylesheet" href="../CommonOperations/CommonStylePages.css">
 </head>
 
 <body>
@@ -27,16 +33,17 @@
         </div>
         <button type="submit" class="btn-signUp">Sign Up</button>
     </form>
-    <div class="login">
+    <div class="signup">
         <span>Already have an account?</span>
-        <a href="http://localhost:63342/web/com/example/web/FrontEnd/LoginPage/UserLoginPage.html?_ijt=eg5jt299cu9oq2f4hk4n49gjps&_ij_reload=RELOAD_ON_SAVE">Login</a>
+        <a href="http://localhost:63342/web/com/example/web/FrontEnd/Users_Registration/LoginPage/UserLoginPage.html?_ijt=mci1gmfbo5decn5h284vfofi7n&_ij_reload=RELOAD_ON_SAVE">Login</a>
     </div>
+    <p id="error-message"></p>
     <div class="separator">
         <span>or</span>
     </div>
     <div class="social-login">
-        <button class="btn-google">Google Login</button>
-        <button class="btn-facebook">Facebook Login</button>
+        <button class="btn-google" onclick=onGoogleSignIn()>Google Login</button>
+        <button class="btn-facebook" onclick=onFacebookSignIn()>Facebook Login</button>
     </div>
 </div>
 

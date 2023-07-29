@@ -16,6 +16,7 @@ public class UserModel {
     @Column(name = "userid")
     private UUID userId;
 
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "usernumber")
     private int userNumber;
 

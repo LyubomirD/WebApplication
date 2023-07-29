@@ -30,10 +30,9 @@ document.getElementById("signUpForm").addEventListener("submit", function (event
         })
         .then(data => {
             console.log('Login successful!', data);
-            window.location.href = 'http://localhost:63342/web/com/example/web/FrontEnd/LoginPage/UserLoginPage.html?_ijt=eg5jt299cu9oq2f4hk4n49gjps&_ij_reload=RELOAD_ON_SAVE';
+            window.location.href = '../LoginPage/UserLoginPage.html';
         })
 
-        //TODO check if email already exist if yes -> error message  if no -> create new user
         .catch(error => {
             console.error('Error:', error);
             const errorMessage = document.getElementById('error-message');
