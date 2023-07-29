@@ -6,6 +6,8 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
     const email = formData.get('email');
     const password = formData.get('password');
 
+    const backendUrl =
+
     fetch(`http://localhost:8081/login/get/${encodeURIComponent(email)}/${encodeURIComponent(password)}`, {
         method: 'GET',
         headers: {
