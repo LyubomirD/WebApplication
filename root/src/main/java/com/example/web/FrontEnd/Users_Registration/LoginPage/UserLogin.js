@@ -10,7 +10,9 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
-        }
+        },
+        mode: 'no-cors' // Add this line to use no-cors mode
+
     })
         .then(response => {
             if (response.ok) {

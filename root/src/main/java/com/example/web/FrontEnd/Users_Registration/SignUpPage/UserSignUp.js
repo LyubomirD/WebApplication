@@ -18,6 +18,8 @@ document.getElementById("signUpForm").addEventListener("submit", function (event
         headers: {
             'Content-Type': 'application/json'
         },
+        mode: 'no-cors', // Add this line to use no-cors mode
+
         body: JSON.stringify(userDate)
 
     })
