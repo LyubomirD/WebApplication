@@ -30,7 +30,7 @@ document.getElementById("signUpForm").addEventListener("submit", function (event
         })
         .then(data => {
             console.log('Login successful!', data);
-            window.location.href = '../LoginPage/index.html';
+            window.location.href = 'https://lyubomird.github.io/WebApplication/root/src/main/java/com/example/web/FrontEnd/Users_Registration/LoginPage/UserLoginPage.html';
         })
 
         .catch(error => {
