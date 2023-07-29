@@ -6,7 +6,7 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
     const email = formData.get('email');
     const password = formData.get('password');
 
-    fetch(`https://2b16-79-124-18-222.ngrok.io/login/get/${encodeURIComponent(email)}/${encodeURIComponent(password)}`, {
+    fetch(`https://6be4-79-124-18-222.ngrok.io/login/get/${encodeURIComponent(email)}/${encodeURIComponent(password)}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
