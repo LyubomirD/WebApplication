@@ -11,6 +11,7 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
         headers: {
             'Content-Type': 'application/json'
         },
+        mode: 'no-cors'
     })
         .then(response => {
             if (response.ok) {
