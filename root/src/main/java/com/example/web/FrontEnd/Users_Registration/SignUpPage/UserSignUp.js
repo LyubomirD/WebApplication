@@ -13,7 +13,7 @@ document.getElementById("signUpForm").addEventListener("submit", function (event
         password: password
     };
 
-    fetch('http://localhost:8081/login/post', {
+    fetch('http://192.168.102.116:8081/login/post', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

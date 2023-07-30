@@ -6,7 +6,7 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
     const email = formData.get('email');
     const password = formData.get('password');
 
-    fetch(`http://localhost:8081/login/get/${encodeURIComponent(email)}/${encodeURIComponent(password)}`, {
+    fetch(`http://192.168.102.116:8081/login/get/${encodeURIComponent(email)}/${encodeURIComponent(password)}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
