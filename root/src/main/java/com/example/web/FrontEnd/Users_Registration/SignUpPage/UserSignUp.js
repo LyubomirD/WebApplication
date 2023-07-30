@@ -21,13 +21,13 @@ document.getElementById("signUpForm").addEventListener("submit", function (event
         mode: 'no-cors',
         body: JSON.stringify(userDate)
     })
-        .then(response => {
-            if (response.ok) {
-                return response.json();
-            } else {
-                throw new Error('Login failed. Invalid credentials.');
-            }
-        })
+        // .then(response => {
+        //     if (response.ok) {
+        //         return response.json();
+        //     } else {
+        //         throw new Error('Login failed. Invalid credentials.');
+        //     }
+        // })
         .then(data => {
             console.log('Login successful!', data);
             window.location.href = 'https://lyubomird.github.io/WebApplication/root/src/main/java/com/example/web/FrontEnd/Users_Registration/LoginPage/UserLoginPage.html';
