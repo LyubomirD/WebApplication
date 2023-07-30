@@ -6,12 +6,12 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
     const email = formData.get('email');
     const password = formData.get('password');
 
-    fetch(`https://6be4-79-124-18-222.ngrok.io/login/get/${encodeURIComponent(email)}/${encodeURIComponent(password)}`, {
+    fetch(`http://localhost:8081/login/get/${encodeURIComponent(email)}/${encodeURIComponent(password)}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
         },
-        mode: 'no-cors' // Add this line to use no-cors mode
+        mode: 'no-cors'
 
     })
         .then(response => {
