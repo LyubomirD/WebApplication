@@ -19,7 +19,7 @@ public class UserModel {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "usernumber")
     private int userNumber;
-//
+
     @Column(name = "username")
     private String username;
 
