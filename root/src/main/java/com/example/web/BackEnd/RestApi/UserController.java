@@ -3,13 +3,17 @@ package com.example.web.BackEnd.RestApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
 @RequestMapping("/login")
 @CrossOrigin(origins = "https://lyubomird.github.io")
+@Validated
 public class UserController {
 
     private final UserService userService;
@@ -35,7 +39,11 @@ public class UserController {
     }
 
     @PostMapping("/post")
-    public ResponseEntity<UserModel> createUser(@RequestBody UserModel userModel) {
+    public ResponseEntity<UserModel> createUser(@RequestBody @Valid UserModel userModel, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body((UserModel) bindingResult.getAllErrors());
+        }
+
         UserModel createdUser = userService.createUser(userModel);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdUser);
     }
