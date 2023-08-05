@@ -38,13 +38,16 @@ public class UserController {
         }
     }
 
+    //TODO email/password that is not valid will not be saved
     @PostMapping("/post")
-    public ResponseEntity<UserModel> createUser(@RequestBody @Valid UserModel userModel, BindingResult bindingResult) {
+    public ResponseEntity<UserModel> createUser(@Valid @RequestBody UserModel userModel, BindingResult bindingResult) {
+
         if (bindingResult.hasErrors()) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body((UserModel) bindingResult.getAllErrors());
+            return ResponseEntity.badRequest().body((UserModel) bindingResult.getAllErrors());
         }
 
         UserModel createdUser = userService.createUser(userModel);
+        System.out.println("New created user: " +createdUser);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdUser);
     }
 

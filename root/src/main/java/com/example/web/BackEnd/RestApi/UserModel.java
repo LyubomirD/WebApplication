@@ -1,6 +1,7 @@
 package com.example.web.BackEnd.RestApi;
 
-import com.example.web.CustomAnnotations.ValidEmailFormat;
+import com.example.web.BackEnd.CustomAnnotations.ValidEmailFormat;
+import com.example.web.BackEnd.CustomAnnotations.ValidPasswordFormat;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -33,8 +34,7 @@ public class UserModel {
     private String email;
 
     @NotNull
-    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$",
-            message = "Password must contain at least 8 characters, one digit, one lowercase letter, one uppercase letter, and one special character")
+    @ValidPasswordFormat
     @Column(name = "password")
     private String password;
 
