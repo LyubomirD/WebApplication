@@ -1,5 +1,6 @@
 package com.example.web.BackEnd.RestApi;
 
+import com.example.web.BackEnd.CustomAnnotations.PreventXSSAttacks;
 import com.example.web.BackEnd.CustomAnnotations.ValidEmailFormat;
 import com.example.web.BackEnd.CustomAnnotations.ValidPasswordFormat;
 import lombok.Getter;
@@ -14,6 +15,7 @@ import java.util.UUID;
 @Table(name = "users")
 @Getter
 @Setter
+@PreventXSSAttacks
 public class UserModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,16 +27,19 @@ public class UserModel {
     private int userNumber;
 
     @NotNull
+    @PreventXSSAttacks
     @Column(name = "username")
     private String username;
 
     @NotNull
     @ValidEmailFormat
+    @PreventXSSAttacks
     @Column(name = "email")
     private String email;
 
     @NotNull
     @ValidPasswordFormat
+    @PreventXSSAttacks
     @Column(name = "password")
     private String password;
 

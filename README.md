@@ -16,9 +16,12 @@ What have I learned until this moment:
 - extremely useful, helps you a lot
 - Lombok saves you time
 - @Configuration can change how Spring Boot works, but you use it to your advantage
+- To create and set custom annotations and exceptions
+- Spring Data JPA prevents by default SQL injection attacks
+
 
 4. Databases
-- UUID is better for ID than a SERIAL
+- UUID is better for ID that uses as type SERIAL
 
 5. Security
 - http can be used when you are working locally with localhost
@@ -28,3 +31,15 @@ What have I learned until this moment:
 - CORS is a mechanism to restrict users from accessing shared resources
 - to bypass so to say we need a tunnel, ngrok can make one
 - a tunnel that is in one end https and in the other localhost:PORT
+
+Diagram of the project:
+
+This diagram is representing how I found a way to connect my frontend and backend using https:// and the project to be on the internet.
+
+![Connection of frontend and backend throw the internet](/Users/lubodimoff/Desktop/Code/Intellij_Ultimate/web/DiagramConnection.png)
+
+Some downsides are that if the computer is turned off the backend would be shutdown completely, 
+because the computer works as a server. In addition to that, the ngrok that makes the https tunnel between the 
+can only work properly for 2 hours, after that it (the tunnel) needs to be changed.
+
+However, the issue with the tunnel can be overcome by automating the change of the tunnel!

@@ -1,8 +1,10 @@
 package com.example.web.BackEnd.RestApi;
 
+import antlr.StringUtils;
 import com.example.web.BackEnd.CustomAnnotations.ValidEmailFormat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.util.HtmlUtils;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -33,10 +35,7 @@ public class UserService {
             return null;
         }
 
-//        if (isValidUser(userModel)) {
-//            System.out.println("Validation method Server worked");
-//            return null;
-//        }
+        userModel.setEmail(HtmlUtils.htmlEscape(userModel.getEmail()));
 
         return userRepository.save(userModel);
     }
@@ -75,22 +74,6 @@ public class UserService {
 
     public boolean deleteUser(int userNumber) {
         return deleteOneUserById(userNumber);
-    }
-
-    private static boolean isValidUser(UserModel userModel) {
-
-        String email = userModel.getEmail();
-        String password = userModel.getPassword();
-
-        if (email != null && email.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")) {
-            return false;
-        }
-
-        if (password != null && password.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$")) {
-            return false;
-        }
-
-        return true;
     }
 
 }

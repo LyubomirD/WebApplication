@@ -38,7 +38,6 @@ public class UserController {
         }
     }
 
-    //TODO email/password that is not valid will not be saved
     @PostMapping("/post")
     public ResponseEntity<UserModel> createUser(@Valid @RequestBody UserModel userModel, BindingResult bindingResult) {
 
@@ -47,7 +46,6 @@ public class UserController {
         }
 
         UserModel createdUser = userService.createUser(userModel);
-        System.out.println("New created user: " +createdUser);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdUser);
     }
 
