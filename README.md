@@ -36,7 +36,7 @@ Diagram of the project:
 
 This diagram is representing how I found a way to connect my frontend and backend using https:// and the project to be on the internet.
 
-![Connection of frontend and backend throw the internet](/Users/lubodimoff/Desktop/Code/Intellij_Ultimate/web/DiagramConnection.png)
+![Connection of frontend and backend throw the internet](DiagramConnection.png)
 
 Some downsides are that if the computer is turned off the backend would be shutdown completely, 
 because the computer works as a server. In addition to that, the ngrok that makes the https tunnel between the 
