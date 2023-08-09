@@ -1,24 +1,20 @@
-This is a learning side project in which I am learning 
+This is a side project from which I am learning new information
 about Git, GitHub, RestApis, Spring Boot, Databases and Security in the internet.
 
-What have I learned until this moment:
+What have I learned so far from this side project:
 1. Git
-- you must use it
-- after the creation of terrible, unuseful code that introduces only bugs, you can go back to your last working commit
+- after the writing terrible code that introduces only bugs, you can go back to your last working commit
 - you can divide to project code into branches that would function as a separate application/projects
 - git commit -am "commit text", combine the "commit" and "add ." in one line
 
 2. Github
 - there is a way to automate part of your code
-- must learn and understand it before trying stupid things
 
 3. Spring Boot
-- extremely useful, helps you a lot
-- Lombok saves you time
 - @Configuration can change how Spring Boot works, but you use it to your advantage
 - To create and set custom annotations and exceptions
 - Spring Data JPA prevents by default SQL injection attacks
-
+- Even when testing custom validations they will throw an exceptions when provided invalid input 
 
 4. Databases
 - UUID is better for ID that uses as type SERIAL
@@ -32,14 +28,14 @@ What have I learned until this moment:
 - to bypass so to say we need a tunnel, ngrok can make one
 - a tunnel that is in one end https and in the other localhost:PORT
 
-Diagram of the project:
+Rough diagram of the project connections:
 
-This diagram is representing how I found a way to connect my frontend and backend using https:// and the project to be on the internet.
+This diagram presents how I connect my frontend through the internet with my local backend!
 
-![Connection of frontend and backend throw the internet](DiagramConnection.png)
+![DiagramConnection](DiagramConnection.png)
 
 Some downsides are that if the computer is turned off the backend would be shutdown completely, 
 because the computer works as a server. In addition to that, the ngrok that makes the https tunnel between the 
-can only work properly for 2 hours, after that it (the tunnel) needs to be changed.
+frontend and the backend can only work for 2 hours, after tha the tunnel needs to be restarted and changed with new one.
 
-However, the issue with the tunnel can be overcome by automating the change of the tunnel!
+However, the issue with the tunnel can be overcome by automating the change of the tunnel, with the help of GitHub Actions!
