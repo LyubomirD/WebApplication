@@ -2,9 +2,8 @@ package com.example.web.BackendTests.CustomAnnotations;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
-
 import javax.validation.ConstraintValidatorContext;
-
+import javax.validation.ValidationException;
 import com.example.web.BackEnd.CustomAnnotations.EmailFormatValidator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -29,16 +28,28 @@ public class EmailFormatValidatorTest {
 
     @Test
     public void testInvalidEmail() {
-        assertFalse(validator.isValid("invalid-email", context));
+        ValidationException exception = assertThrows(ValidationException.class, () -> {
+            validator.isValid("invalid-email", context);
+        });
+
+        assertTrue(exception.getMessage().contains("Incorrectly written email"));
     }
 
     @Test
     public void testNullEmail() {
-        assertFalse(validator.isValid(null, context));
+        ValidationException exception = assertThrows(ValidationException.class, () -> {
+            validator.isValid(null, context);
+        });
+
+        assertFalse(exception.getMessage().contains("Incorrectly written email"));
     }
 
     @Test
     public void testEmptyEmail() {
-        assertFalse(validator.isValid("", context));
+        ValidationException exception = assertThrows(ValidationException.class, () -> {
+            validator.isValid("", context);
+        });
+
+        assertFalse(exception.getMessage().contains("Incorrectly written email"));
     }
 }

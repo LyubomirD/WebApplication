@@ -18,7 +18,7 @@ public class PasswordFormatValidator implements ConstraintValidator<ValidPasswor
         }
 
         if (!value.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$")) {
-            throw new ValidationException("Password needs to have 8 characters, 1 uppercase letter, 1 number, 1 special symbol");
+            throw new ValidationException("Password needs to have 8 characters, 1 uppercase letter, 1 lowercase letter, 1 number, 1 special symbol");
         }
 
         return true;

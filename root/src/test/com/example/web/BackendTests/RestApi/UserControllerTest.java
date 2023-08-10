@@ -9,8 +9,7 @@ import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
-import org.springframework.test.context.junit.jupiter.web.SpringJUnitWebConfig;
+import org.springframework.validation.BindingResult;
 
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
@@ -19,6 +18,8 @@ import static org.testng.AssertJUnit.*;
 
 @SpringBootTest(classes = UserControllerTest.class)
 public class UserControllerTest {
+
+    private BindingResult bindingResult;
 
     @Mock
     private UserService userService;
@@ -59,4 +60,47 @@ public class UserControllerTest {
         assertNull(response.getBody());
         assertSame(HttpStatus.NOT_FOUND, response.getStatusCode());
     }
+
+    @Test
+    public void testPostUser_Success() {
+        //Given
+        String testUsername = "TesterSuccess";
+        String testEmail = "test_success@mail.com";
+        String testPassword = "Test123$";
+
+        UserModel testUserModel = new UserModel(testUsername, testEmail, testPassword);
+
+        when(userService.createUser(testUserModel)).thenReturn(testUserModel);
+
+        // Initialize BindingResult
+        bindingResult = new org.springframework.validation.BeanPropertyBindingResult(testUserModel, "testUserModel");
+
+        // When
+        ResponseEntity<UserModel> response = userController.createUser(testUserModel, bindingResult);
+
+        // Then
+        assertEquals(testUserModel, response.getBody());
+        assertSame(HttpStatus.CREATED, response.getStatusCode());
+    }
+
+    @Test
+    public void testPostUser_Invalid() {
+        // Given
+        String testUsername = "Invalid&";
+        String testEmail = "test_success.mail.com";
+        String testPassword = "Test";
+
+        UserModel testUserModel = new UserModel(testUsername, testEmail, testPassword);
+
+        when(userService.createUser(testUserModel)).thenReturn(null);
+
+        bindingResult = new org.springframework.validation.BeanPropertyBindingResult(testUserModel, "testUserModel");
+
+        // When
+        ResponseEntity<UserModel> response = userController.createUser(testUserModel, bindingResult);
+
+        // Then
+        assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
+    }
+
 }
