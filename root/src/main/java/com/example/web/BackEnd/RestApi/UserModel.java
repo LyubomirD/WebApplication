@@ -15,7 +15,6 @@ import java.util.UUID;
 @Table(name = "users")
 @Getter
 @Setter
-@PreventXSSAttacks
 public class UserModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

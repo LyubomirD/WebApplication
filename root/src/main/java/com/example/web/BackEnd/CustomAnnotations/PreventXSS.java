@@ -8,19 +8,16 @@ import org.apache.commons.text.StringEscapeUtils;
 
 
 
-public class PreventXSS implements ConstraintValidator<PreventXSSAttacks, UserModel> {
+public class PreventXSS implements ConstraintValidator<PreventXSSAttacks, String> {
 
     @Override
     public void initialize(PreventXSSAttacks constraintAnnotation) {
     }
 
     @Override
-    public boolean isValid(UserModel userModel, ConstraintValidatorContext context) {
-        String username = userModel.getUsername();
-        String email = userModel.getEmail();
-        String password = userModel.getPassword();
+    public boolean isValid(String value, ConstraintValidatorContext context) {
 
-        if (containsHarmfulContent(username) || containsHarmfulContent(email) || containsHarmfulContent(password)) {
+        if (containsHarmfulContent(value)) {
             return false;
         }
 

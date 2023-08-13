@@ -12,9 +12,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 
 import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static org.testng.AssertJUnit.*;
-
 
 @SpringBootTest(classes = UserControllerTest.class)
 public class UserControllerTest {
@@ -73,7 +73,7 @@ public class UserControllerTest {
         when(userService.createUser(testUserModel)).thenReturn(testUserModel);
 
         // Initialize BindingResult
-        bindingResult = new org.springframework.validation.BeanPropertyBindingResult(testUserModel, "testUserModel");
+        bindingResult = new org.springframework.validation.BeanPropertyBindingResult(testUserModel, "testUserModelSuccess");
 
         // When
         ResponseEntity<UserModel> response = userController.createUser(testUserModel, bindingResult);
@@ -84,23 +84,39 @@ public class UserControllerTest {
     }
 
     @Test
-    public void testPostUser_Invalid() {
-        // Given
-        String testUsername = "Invalid&";
-        String testEmail = "test_success.mail.com";
-        String testPassword = "Test";
+    public void testCreateUser_WithValidationErrors() {
+        //Given
+        String testUsername = "Tester&";
+        String testEmail = "invalid.mail.com";
+        String testPassword = "invalid";
 
         UserModel testUserModel = new UserModel(testUsername, testEmail, testPassword);
+        BindingResult bindingResult = mock(BindingResult.class);
+        when(bindingResult.hasErrors()).thenReturn(true);
 
-        when(userService.createUser(testUserModel)).thenReturn(null);
-
-        bindingResult = new org.springframework.validation.BeanPropertyBindingResult(testUserModel, "testUserModel");
-
-        // When
+        //When
         ResponseEntity<UserModel> response = userController.createUser(testUserModel, bindingResult);
 
-        // Then
+        //Then
         assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
     }
+
+    @Test
+    public void testCreateUser_InternalServerError() {
+        //Given
+        String testUsername = null;
+        String testEmail = null;
+        String testPassword = null;
+
+        UserModel testUserModel = new UserModel(testUsername, testEmail, testPassword);
+        BindingResult bindingResult = mock(BindingResult.class);
+        when(bindingResult.hasErrors()).thenReturn(false);
+        when(userService.createUser(testUserModel)).thenReturn(null);
+
+        ResponseEntity<UserModel> response = userController.createUser(testUserModel, bindingResult);
+
+        assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, response.getStatusCode());
+    }
+
 
 }

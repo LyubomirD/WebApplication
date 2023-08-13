@@ -1,7 +1,6 @@
 package com.example.web.BackendTests.CustomAnnotations;
 
 import com.example.web.BackEnd.CustomAnnotations.PreventXSS;
-import com.example.web.BackEnd.RestApi.UserModel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -22,47 +21,47 @@ public class PreventXSSTest {
     }
 
     @Test
-    public void testValidUserModel() {
-        UserModel userModel = new UserModel("valid-username", "valid-email@example.com", "Valid-Password###123");
-        assertTrue(validator.isValid(userModel, context));
+    public void testValidUsername() {
+        String usernameValid = "valid-username";
+        assertTrue(validator.isValid(usernameValid, context));
     }
 
     @Test
-    public void testWithXSSInvalidUsername() {
-        UserModel userModel = new UserModel("<script>alert('XSS');</script>", "valid-email@example.com", "valid-password");
-        assertFalse(validator.isValid(userModel, context));
+    public void testValidEmail() {
+        String emailValid = "valid-email@example.com";
+        assertTrue(validator.isValid(emailValid, context));
     }
 
     @Test
-    public void testWithXSSInvalidEmail() {
-        UserModel userModel = new UserModel("valid-username", "<script>alert('XSS');</script>", "valid-password");
-        assertFalse(validator.isValid(userModel, context));
+    public void testValidPassword() {
+        String passwordValid = "valid-password";
+        assertTrue(validator.isValid(passwordValid, context));
     }
 
     @Test
-    public void testWithXSSInvalidPassword() {
-        UserModel userModel = new UserModel("valid-username", "valid-email@example.com", "<script>alert('XSS');</script>");
-        assertFalse(validator.isValid(userModel, context));
+    public void testWithXSSInvalidValue() {
+        String usernameInvalid = "<script>alert('XSS');</script>";
+        assertFalse(validator.isValid(usernameInvalid, context));
     }
 
     @Test
     public void testWithAmpersandInvalidUsername() {
-        UserModel userModel = new UserModel("valid-username&", "valid-email@example.com", "password");
-        assertFalse(validator.isValid(userModel, context));
+        String usernameAmpersandInvalid = "valid-username&";
+        assertFalse(validator.isValid(usernameAmpersandInvalid, context));
     }
 
 
     @Test
     public void testWithAmpersandInvalidEmail() {
-        UserModel userModel = new UserModel("valid-username", "valid-email@example.com&", "password");
-        assertFalse(validator.isValid(userModel, context));
+        String emailAmpersandInvalid = "valid-email@example.com&";
+        assertFalse(validator.isValid(emailAmpersandInvalid, context));
     }
 
 
     @Test
     public void testWithAmpersandInvalidPassword() {
-        UserModel userModel = new UserModel("valid-username", "valid-email@example.com", "password&");
-        assertFalse(validator.isValid(userModel, context));
+        String passwordAmpersandInvalid = "password&";
+        assertFalse(validator.isValid(passwordAmpersandInvalid, context));
     }
 
 }

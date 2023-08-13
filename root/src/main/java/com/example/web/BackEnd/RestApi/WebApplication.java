@@ -15,6 +15,5 @@ public class WebApplication {
     }
 }
 
-//TODO Cross-Site Scripting (XSS) Prevention: Escaping and encoding user-generated content before displaying it on web pages can prevent XSS attacks. Utilize content security policies (CSP) to control which resources can be loaded. 
-
+//TODO Secure Password Storage: Hash passwords using strong cryptographic algorithms (e.g., bcrypt) and never store plain-text passwords. 
 

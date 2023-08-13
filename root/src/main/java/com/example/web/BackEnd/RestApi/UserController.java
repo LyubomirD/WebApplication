@@ -40,15 +40,18 @@ public class UserController {
 
     @PostMapping("/post")
     public ResponseEntity<UserModel> createUser(@Valid @RequestBody UserModel userModel, BindingResult bindingResult) {
-
-        if (bindingResult.hasErrors()) {
-            return ResponseEntity.badRequest().body((UserModel) bindingResult.getAllErrors());
-        }
-
         UserModel createdUser = userService.createUser(userModel);
+        if (bindingResult.hasErrors()) {
+            return ResponseEntity.badRequest().body(createdUser);
+        }
+        if (createdUser == null) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
         return ResponseEntity.status(HttpStatus.CREATED).body(createdUser);
     }
 
+
+    // those methods are not currently in use
     @PutMapping("/update/{userNumber}")
     public ResponseEntity<UserModel> updateUser(@PathVariable int userNumber, @RequestBody UserModel userModel) {
         UserModel updatedUser = userService.updateUser(userNumber, userModel);
