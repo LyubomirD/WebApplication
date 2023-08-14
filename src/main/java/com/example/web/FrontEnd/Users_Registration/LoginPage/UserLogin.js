@@ -22,7 +22,7 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
         // })
         .then(data => {
             console.log('Login successful!', data);
-            window.location.href = 'https://lyubomird.github.io/WebApplication/root/src/main/java/com/example/web/FrontEnd/nextPage.html';
+            window.location.href = '../../nextPage.html';
         })
         .catch(error => {
             console.error('Error:', error);

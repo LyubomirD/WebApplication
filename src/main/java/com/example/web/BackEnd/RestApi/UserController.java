@@ -29,7 +29,7 @@ public class UserController {
     }
 
     @GetMapping("/get/{email}/{password}")
-    public ResponseEntity<UserModel> getUser(@PathVariable String email ,@PathVariable String password) {
+    public ResponseEntity<UserModel> getUser(@Valid @PathVariable String email ,@Valid @PathVariable String password) {
         UserModel user = userService.getUserByEmailAndPassword(email, password);
         if (user != null) {
             return ResponseEntity.ok(user);

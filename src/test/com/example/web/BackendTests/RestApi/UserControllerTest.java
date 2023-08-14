@@ -113,8 +113,10 @@ public class UserControllerTest {
         when(bindingResult.hasErrors()).thenReturn(false);
         when(userService.createUser(testUserModel)).thenReturn(null);
 
+        //When
         ResponseEntity<UserModel> response = userController.createUser(testUserModel, bindingResult);
 
+        //Then
         assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, response.getStatusCode());
     }
 
