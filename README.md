@@ -50,10 +50,19 @@ of what I have learned so far:
 - ngrok tunnels
 
 The diagram outlines how the frontend gets connected to the local backend through the internet, 
-highlighting the architectural connections and interactions.
+highlighting the architectural connections and interactions. This how the WebApplication looked with
+monolithic architecture, before it was changed!
 
-![DiagramConnection](DiagramConnection.png)
+![MonolithicArchitecture](WebApplication_Monolitic.png)
 
 While there are certain limitations, such as the backend shutting down if the host computer powers off and the ngrok 
 tunnel's time constraint, these obstacles can be addressed through innovative solutions. For example, automating 
 tunnel changes using GitHub Actions can effectively resolve the tunnel-related challenges.
+
+Here is a diagram presenting how the WebApplication will change drastically when I start to use microservices architecture instead of
+monolithic!
+
+![MicroserviceArchitecture](WebApplication_Microservices.png)
+
+There is a long way, before I adapt and start to integrate microservices, but I would try and I would learn from
+all my mistakes!
