@@ -13,7 +13,7 @@ document.getElementById("signUpForm").addEventListener("submit", function (event
         password: password
     };
 
-    fetch('https://a8e0-79-124-18-222.ngrok.io/login/post', {
+    fetch('http://localhost:8081/login/post', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

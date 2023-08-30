@@ -6,23 +6,22 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
     const email = formData.get('email');
     const password = formData.get('password');
 
-    fetch(`https://a8e0-79-124-18-222.ngrok.io/login/get/${encodeURIComponent(email)}/${encodeURIComponent(password)}`, {
+    fetch(`http://localhost:8081/login/get/${email}/${password}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
         },
-        mode: 'no-cors'
     })
-        // .then(response => {
-        //     if (response.ok) {
-        //         return response.json();
-        //     } else {
-        //         throw new Error('Login failed. Invalid credentials.');
-        //     }
-        // })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Login failed. Invalid credentials.');
+            }
+        })
         .then(data => {
             console.log('Login successful!', data);
-            window.location.href = '../../nextPage.html';
+            window.location.href = 'http://localhost:63342/web/com/example/web/FrontEnd/nextPage.html';
         })
         .catch(error => {
             console.error('Error:', error);

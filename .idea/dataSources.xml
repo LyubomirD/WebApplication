@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="webpage" uuid="fbf381e8-6075-4fd1-84ca-09fbf22914ce">
+    <data-source source="LOCAL" name="webpage_monolithic" uuid="fbf381e8-6075-4fd1-84ca-09fbf22914ce">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:7171/webpage</jdbc-url>
+      <jdbc-url>jdbc:postgresql://localhost:7171/webpage_monolithic</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

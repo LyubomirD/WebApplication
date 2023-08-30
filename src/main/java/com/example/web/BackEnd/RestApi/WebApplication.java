@@ -15,5 +15,3 @@ public class WebApplication {
     }
 }
 
-//TODO Secure Password Storage: Hash passwords using strong cryptographic algorithms (e.g., bcrypt) and never store plain-text passwords. 
-
