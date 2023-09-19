@@ -1,7 +1,5 @@
 package com.example.web.BackEnd.CustomAnnotations;
 
-import com.example.web.BackEnd.RestApi.UserModel;
-
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import org.apache.commons.text.StringEscapeUtils;

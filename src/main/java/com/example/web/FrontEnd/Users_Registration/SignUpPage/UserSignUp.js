@@ -13,21 +13,20 @@ document.getElementById("signUpForm").addEventListener("submit", function (event
         password: password
     };
 
-    fetch('http://localhost:8081/login/post', {
+    fetch('http://localhost:8081/usersRegistration/sign-up', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        mode: 'no-cors',
         body: JSON.stringify(userDate)
     })
-        // .then(response => {
-        //     if (response.ok) {
-        //         return response.json();
-        //     } else {
-        //         throw new Error('Login failed. Invalid credentials.');
-        //     }
-        // })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Login failed. Invalid credentials.');
+            }
+        })
         .then(data => {
             console.log('Login successful!', data);
             window.location.href = '../LoginPage/UserLoginPage.html';

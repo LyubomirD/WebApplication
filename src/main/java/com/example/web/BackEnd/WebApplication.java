@@ -1,4 +1,4 @@
-package com.example.web.BackEnd.RestApi;
+package com.example.web.BackEnd;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

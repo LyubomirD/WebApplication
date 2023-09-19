@@ -6,22 +6,23 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
     const email = formData.get('email');
     const password = formData.get('password');
 
-    fetch(`http://localhost:8081/login/get/${email}/${password}`, {
+    const credentials = btoa(email + ':' + password);
+
+    fetch('http://localhost:8081/usersRegistration/login', {
         method: 'GET',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': "Basic " + credentials
         },
     })
         .then(response => {
+            console.log(response.statusText + " and " + response.status);
             if (response.ok) {
-                return response.json();
+                console.log('Login successful!');
+                window.location.href = 'http://localhost:63342/web/com/example/web/FrontEnd/HomePage/HomePage.html';
             } else {
                 throw new Error('Login failed. Invalid credentials.');
             }
-        })
-        .then(data => {
-            console.log('Login successful!', data);
-            window.location.href = 'http://localhost:63342/web/com/example/web/FrontEnd/nextPage.html';
         })
         .catch(error => {
             console.error('Error:', error);

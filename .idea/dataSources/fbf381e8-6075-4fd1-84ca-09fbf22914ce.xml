@@ -3,9 +3,17 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.45">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>892</IntrospectionStateNumber>
+      <Grants>1||-9223372036854775808|c|G
+1||10|c|G
+1||10|C|G
+1||10|T|G
+4||-9223372036854775808|c|G
+4||10|c|G
+4||10|C|G
+4||10|T|G</Grants>
+      <IntrospectionStateNumber>912</IntrospectionStateNumber>
       <ServerVersion>15.2</ServerVersion>
-      <StartupTime>1692362980</StartupTime>
+      <StartupTime>1695125623</StartupTime>
       <TimeZones>true ACDT
 true ACSST
 false ACST
@@ -230,7 +238,7 @@ false America/Rio_Branco
 false America/Rosario
 true America/Santa_Isabel
 false America/Santarem
-false America/Santiago
+true America/Santiago
 false America/Santo_Domingo
 false America/Sao_Paulo
 true America/Scoresbysund
@@ -428,7 +436,7 @@ false CHAST
 false CHUT
 false CKT
 true CLST
-false CLT
+true CLT
 false COT
 false CST
 true CST6CDT
@@ -441,13 +449,13 @@ true Canada/Newfoundland
 true Canada/Pacific
 false Canada/Saskatchewan
 false Canada/Yukon
-false Chile/Continental
-false Chile/EasterIsland
+true Chile/Continental
+true Chile/EasterIsland
 true Cuba
 false DAVT
 false DDUT
-false EASST
-false EAST
+true EASST
+true EAST
 false EAT
 true EDT
 true EEST
@@ -684,7 +692,7 @@ false Pacific/Auckland
 false Pacific/Bougainville
 false Pacific/Chatham
 false Pacific/Chuuk
-false Pacific/Easter
+true Pacific/Easter
 false Pacific/Efate
 false Pacific/Enderbury
 false Pacific/Fakaofo
@@ -814,7 +822,7 @@ false Zulu
 13471||10|C|G
 13471||-9223372036854775808|U|G
 13471||10|U|G</Grants>
-      <IntrospectionStateNumber>892</IntrospectionStateNumber>
+      <IntrospectionStateNumber>912</IntrospectionStateNumber>
       <ObjectId>24576</ObjectId>
       <OwnerName>lubodimoff</OwnerName>
     </database>
@@ -4252,7 +4260,7 @@ false Zulu
     <schema id="266" parent="5" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>892</IntrospectionStateNumber>
+      <IntrospectionStateNumber>912</IntrospectionStateNumber>
       <ObjectId>2200</ObjectId>
       <StateNumber>517</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
@@ -4374,85 +4382,140 @@ false Zulu
       <LanguageName>c</LanguageName>
       <OwnerName>lubodimoff</OwnerName>
     </routine>
-    <sequence id="278" parent="266" name="user_number_seq">
+    <sequence id="278" parent="266" name="tasks_id_seq">
+      <DasType>integer|0s</DasType>
+      <ObjectId>32805</ObjectId>
+      <StateNumber>909</StateNumber>
+      <OwnerName>lubodimoff</OwnerName>
+    </sequence>
+    <sequence id="279" parent="266" name="user_number_seq">
       <DasType>bigint|0s</DasType>
       <ObjectId>24609</ObjectId>
       <StateNumber>789</StateNumber>
       <OwnerName>lubodimoff</OwnerName>
     </sequence>
-    <sequence id="279" parent="266" name="users_usernumber_seq">
+    <sequence id="280" parent="266" name="users_usernumber_seq">
       <DasType>integer|0s</DasType>
       <ObjectId>24598</ObjectId>
       <StateNumber>806</StateNumber>
       <OwnerName>lubodimoff</OwnerName>
     </sequence>
-    <table id="280" parent="266" name="users">
+    <table id="281" parent="266" name="tasks">
+      <ObjectId>32806</ObjectId>
+      <StateNumber>909</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>lubodimoff</OwnerName>
+    </table>
+    <table id="282" parent="266" name="users">
       <ObjectId>24599</ObjectId>
       <StateNumber>792</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>lubodimoff</OwnerName>
     </table>
-    <argument id="281" parent="267">
+    <argument id="283" parent="267">
       <ArgumentDirection>R</ArgumentDirection>
       <DasType>trigger|0s</DasType>
     </argument>
-    <argument id="282" parent="268">
+    <argument id="284" parent="268">
       <ArgumentDirection>R</ArgumentDirection>
       <DasType>uuid|0s</DasType>
     </argument>
-    <argument id="283" parent="269">
+    <argument id="285" parent="269">
       <ArgumentDirection>R</ArgumentDirection>
       <DasType>uuid|0s</DasType>
     </argument>
-    <argument id="284" parent="270">
+    <argument id="286" parent="270">
       <ArgumentDirection>R</ArgumentDirection>
       <DasType>uuid|0s</DasType>
     </argument>
-    <argument id="285" parent="270" name="namespace">
+    <argument id="287" parent="270" name="namespace">
       <DasType>uuid|0s</DasType>
       <Position>1</Position>
     </argument>
-    <argument id="286" parent="270" name="name">
+    <argument id="288" parent="270" name="name">
       <DasType>text|0s</DasType>
       <Position>2</Position>
     </argument>
-    <argument id="287" parent="271">
+    <argument id="289" parent="271">
       <ArgumentDirection>R</ArgumentDirection>
       <DasType>uuid|0s</DasType>
     </argument>
-    <argument id="288" parent="272">
+    <argument id="290" parent="272">
       <ArgumentDirection>R</ArgumentDirection>
       <DasType>uuid|0s</DasType>
     </argument>
-    <argument id="289" parent="272" name="namespace">
+    <argument id="291" parent="272" name="namespace">
       <DasType>uuid|0s</DasType>
       <Position>1</Position>
     </argument>
-    <argument id="290" parent="272" name="name">
+    <argument id="292" parent="272" name="name">
       <DasType>text|0s</DasType>
       <Position>2</Position>
     </argument>
-    <argument id="291" parent="273">
+    <argument id="293" parent="273">
       <ArgumentDirection>R</ArgumentDirection>
       <DasType>uuid|0s</DasType>
     </argument>
-    <argument id="292" parent="274">
+    <argument id="294" parent="274">
       <ArgumentDirection>R</ArgumentDirection>
       <DasType>uuid|0s</DasType>
     </argument>
-    <argument id="293" parent="275">
+    <argument id="295" parent="275">
       <ArgumentDirection>R</ArgumentDirection>
       <DasType>uuid|0s</DasType>
     </argument>
-    <argument id="294" parent="276">
+    <argument id="296" parent="276">
       <ArgumentDirection>R</ArgumentDirection>
       <DasType>uuid|0s</DasType>
     </argument>
-    <argument id="295" parent="277">
+    <argument id="297" parent="277">
       <ArgumentDirection>R</ArgumentDirection>
       <DasType>uuid|0s</DasType>
     </argument>
-    <column id="296" parent="280" name="usernumber">
+    <column id="298" parent="281" name="id">
+      <DasType>integer|0s</DasType>
+      <DefaultExpression>nextval(&apos;tasks_id_seq&apos;::regclass)</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>909</StateNumber>
+      <SequenceId>32805</SequenceId>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="299" parent="281" name="title">
+      <DasType>varchar(200)|0s</DasType>
+      <Position>2</Position>
+      <StateNumber>909</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="300" parent="281" name="description">
+      <DasType>varchar(500)|0s</DasType>
+      <Position>3</Position>
+      <StateNumber>909</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="301" parent="281" name="complete">
+      <DasType>boolean|0s</DasType>
+      <Position>4</Position>
+      <StateNumber>909</StateNumber>
+      <TypeId>16</TypeId>
+    </column>
+    <index id="302" parent="281" name="tasks_pkey">
+      <ColNames>id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>32812</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>909</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="303" parent="281" name="tasks_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>32813</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>909</StateNumber>
+      <UnderlyingIndexId>32812</UnderlyingIndexId>
+    </key>
+    <column id="304" parent="282" name="usernumber">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;users_usernumber_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -4461,7 +4524,7 @@ false Zulu
       <SequenceId>24598</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="297" parent="280" name="userid">
+    <column id="305" parent="282" name="userid">
       <DasType>uuid|0s</DasType>
       <DefaultExpression>uuid_generate_v4()</DefaultExpression>
       <NotNull>1</NotNull>
@@ -4469,28 +4532,28 @@ false Zulu
       <StateNumber>767</StateNumber>
       <TypeId>2950</TypeId>
     </column>
-    <column id="298" parent="280" name="username">
+    <column id="306" parent="282" name="username">
       <DasType>varchar(200)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>767</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="299" parent="280" name="email">
+    <column id="307" parent="282" name="email">
       <DasType>varchar(250)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StateNumber>767</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="300" parent="280" name="password">
+    <column id="308" parent="282" name="password">
       <DasType>varchar(200)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StateNumber>767</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="301" parent="280" name="users_pkey">
+    <index id="309" parent="282" name="users_pkey">
       <ColNames>userid</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>24606</ObjectId>
@@ -4499,7 +4562,7 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="302" parent="280" name="useremailandpassword">
+    <index id="310" parent="282" name="useremailandpassword">
       <ColNames>email
 password</ColNames>
       <ObjectId>24608</ObjectId>
@@ -4512,14 +4575,14 @@ default</CollationNames>
       <CollationParentNames>pg_catalog
 pg_catalog</CollationParentNames>
     </index>
-    <key id="303" parent="280" name="users_pkey">
+    <key id="311" parent="282" name="users_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>24607</ObjectId>
       <Primary>1</Primary>
       <StateNumber>767</StateNumber>
       <UnderlyingIndexId>24606</UnderlyingIndexId>
     </key>
-    <trigger id="304" parent="280" name="set_user_number_trigger">
+    <trigger id="312" parent="282" name="set_user_number_trigger">
       <Events>I</Events>
       <ObjectId>24611</ObjectId>
       <StateNumber>792</StateNumber>
