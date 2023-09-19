@@ -3,12 +3,16 @@ package com.example.web.BackEnd.RestApi.UserLogin;
 import com.example.web.BackEnd.CustomAnnotations.PreventXSSAttacks;
 import com.example.web.BackEnd.CustomAnnotations.ValidPasswordFormat;
 import com.example.web.BackEnd.CustomAnnotations.ValidEmailFormat;
+import com.example.web.BackEnd.RestApi.Tasks.TaskModel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import org.springframework.scheduling.config.Task;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -38,5 +42,8 @@ public class UserModel {
     @PreventXSSAttacks
     @Column(name = "password")
     private String password;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<TaskModel> tasks;
 
 }
