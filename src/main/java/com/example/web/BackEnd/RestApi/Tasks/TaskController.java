@@ -1,5 +1,7 @@
 package com.example.web.BackEnd.RestApi.Tasks;
 
+import com.example.web.BackEnd.RestApi.UserLogin.UserModel;
+import com.example.web.BackEnd.RestApi.UserLogin.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,9 +21,10 @@ public class TaskController {
 
     @PostMapping("/new-task")
     public ResponseEntity<TaskModel> addTask(@RequestBody TaskModel taskModel) {
-        TaskModel newTask = taskService.addNewTask(taskModel);
-        return ResponseEntity.status(HttpStatus.CREATED).body(newTask);
+            TaskModel newTask = taskService.addNewTask(taskModel);
+            return ResponseEntity.status(HttpStatus.CREATED).body(newTask);
     }
+
 
     @PutMapping("/update-task/{id}")
     public ResponseEntity<TaskModel> updateTask(@PathVariable int id, @RequestBody TaskModel taskModel) {
