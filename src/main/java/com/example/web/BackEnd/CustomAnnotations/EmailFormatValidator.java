@@ -17,7 +17,7 @@ public class EmailFormatValidator implements ConstraintValidator<ValidEmailForma
             throw new ValidationException("You have not provided an email address");
         }
 
-        if (!value.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")) {
+        if (!value.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.+[A-Za-z0-9.-]+")) {
             throw new ValidationException("Incorrectly written email");
         }
 

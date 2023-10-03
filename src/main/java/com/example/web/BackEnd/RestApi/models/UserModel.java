@@ -1,9 +1,7 @@
-package com.example.web.BackEnd.RestApi.User;
+package com.example.web.BackEnd.RestApi.models;
 
-import com.example.web.BackEnd.CustomAnnotations.PreventXSSAttacks;
 import com.example.web.BackEnd.CustomAnnotations.ValidPasswordFormat;
 import com.example.web.BackEnd.CustomAnnotations.ValidEmailFormat;
-import com.example.web.BackEnd.RestApi.Book.BookModel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -25,19 +23,16 @@ public class UserModel {
     private UUID userid;
 
     @NotNull
-    @PreventXSSAttacks
     @Column(name = "username")
     private String username;
 
     @NotNull
     @ValidEmailFormat
-    @PreventXSSAttacks
     @Column(name = "email")
     private String email;
 
     @NotNull
     @ValidPasswordFormat
-    @PreventXSSAttacks
     @Column(name = "password")
     private String password;
 
@@ -45,4 +40,3 @@ public class UserModel {
     private List<BookModel> books;
 
 }
-// TODO new controller 2 parameters ( userID, bookID), find both in DB, add book to user list, save user

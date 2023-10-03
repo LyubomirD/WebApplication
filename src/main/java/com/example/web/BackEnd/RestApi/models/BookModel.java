@@ -1,4 +1,4 @@
-package com.example.web.BackEnd.RestApi.Book;
+package com.example.web.BackEnd.RestApi.models;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

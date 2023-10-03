@@ -1,5 +1,7 @@
-package com.example.web.BackEnd.RestApi.User;
+package com.example.web.BackEnd.RestApi.services;
 
+import com.example.web.BackEnd.RestApi.models.UserModel;
+import com.example.web.BackEnd.RestApi.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

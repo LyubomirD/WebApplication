@@ -1,8 +1,8 @@
 package com.example.web.BackEnd.Security.BCryptUserPassword;
 
 import com.example.web.BackEnd.CustomException.EmailNotFoundException;
-import com.example.web.BackEnd.RestApi.User.UserModel;
-import com.example.web.BackEnd.RestApi.User.UserRepository;
+import com.example.web.BackEnd.RestApi.models.UserModel;
+import com.example.web.BackEnd.RestApi.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
