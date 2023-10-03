@@ -32,10 +32,22 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/usersRegistration/**").permitAll()
-                .antMatchers("/taskManagement/**").permitAll()
+                .antMatchers("/bookManager/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                .httpBasic() // Enable Basic Authentication
+                .formLogin()
+                .loginPage("http://localhost:63342/web/com/example/web/FrontEnd/Users_Registration/LoginPage/UserLoginPage.html")
+                .permitAll()
+                .and()
+                .httpBasic()
+                .and()
+
+                //TODO create logout page
+                .logout()
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/goodbye")
+                .permitAll()
+
                 .and()
                 .cors()
                 .and()

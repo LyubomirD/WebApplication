@@ -1,6 +1,5 @@
-package com.example.web.BackEnd.RestApi.Tasks;
+package com.example.web.BackEnd.RestApi.Book;
 
-import com.example.web.BackEnd.RestApi.UserLogin.UserModel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -9,25 +8,26 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "tasks")
+@Table(name = "books")
 @Getter
 @Setter
 @RequiredArgsConstructor
-public class TaskModel {
+public class BookModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private int id;
+    @Column(name = "bookid")
+    private int bookid;
 
     @NotNull
     @Column(name = "title")
     private String title;
-    @NotNull
-    @Column(name = "description")
-    private String description;
-    @NotNull
-    @Column(name = "complete")
-    private boolean complete;
 
+    @NotNull
+    @Column(name = "author")
+    private String author;
+
+    @NotNull
+    @Column(name = "available")
+    private boolean available;
 }

@@ -1,4 +1,4 @@
-package com.example.web.BackEnd.RestApi.UserLogin;
+package com.example.web.BackEnd.RestApi.User;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

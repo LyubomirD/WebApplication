@@ -30,3 +30,5 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
             errorMessage.textContent = 'Invalid email or password!';
         });
 });
+
+//TODO to encrypt the payload of the user

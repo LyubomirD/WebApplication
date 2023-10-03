@@ -1,4 +1,4 @@
-package com.example.web.BackEnd.RestApi.UserLogin;
+package com.example.web.BackEnd.RestApi.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,19 +16,15 @@ import java.util.List;
 @Validated
 public class UserController {
 
-    private final UserService userService;
-
     @Autowired
-    public UserController(UserService userService) {
-        this.userService = userService;
-    }
+    private UserService userService;
 
     @GetMapping
     public List<UserModel> getAllUsers() {
         return userService.listAllUsers();
     }
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     public ResponseEntity<UserModel> getUser() {
         String authenticatedUsername = org.springframework.security.core.context.SecurityContextHolder.getContext().getAuthentication().getName();
         UserModel searchedUser = userService.getUserByEmail(authenticatedUsername);

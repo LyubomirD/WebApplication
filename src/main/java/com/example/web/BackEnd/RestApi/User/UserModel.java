@@ -1,14 +1,12 @@
-package com.example.web.BackEnd.RestApi.UserLogin;
+package com.example.web.BackEnd.RestApi.User;
 
 import com.example.web.BackEnd.CustomAnnotations.PreventXSSAttacks;
 import com.example.web.BackEnd.CustomAnnotations.ValidPasswordFormat;
 import com.example.web.BackEnd.CustomAnnotations.ValidEmailFormat;
-import com.example.web.BackEnd.RestApi.Tasks.TaskModel;
+import com.example.web.BackEnd.RestApi.Book.BookModel;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-import org.springframework.scheduling.config.Task;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -24,7 +22,7 @@ public class UserModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "userid")
-    private UUID userId;
+    private UUID userid;
 
     @NotNull
     @PreventXSSAttacks
@@ -43,7 +41,8 @@ public class UserModel {
     @Column(name = "password")
     private String password;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<TaskModel> tasks;
+    @OneToMany(fetch = FetchType.EAGER)
+    private List<BookModel> books;
 
 }
+// TODO new controller 2 parameters ( userID, bookID), find both in DB, add book to user list, save user
