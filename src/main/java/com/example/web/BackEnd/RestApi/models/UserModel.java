@@ -40,3 +40,6 @@ public class UserModel {
     private List<BookModel> books;
 
 }
+
+//TODO (idea) after a user gets a hold of a book the book becames unavailble, when is return the  book is availbe
+//TODO (must) books categories one book can have many categories and many books can have many categories
