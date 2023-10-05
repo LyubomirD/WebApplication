@@ -1,7 +1,5 @@
 package com.example.web.BackendTest.CustomAnnotationsTest;
 
-
-import com.example.web.BackEnd.CustomAnnotations.EmailFormatValidator;
 import com.example.web.BackEnd.CustomAnnotations.PasswordFormatValidator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

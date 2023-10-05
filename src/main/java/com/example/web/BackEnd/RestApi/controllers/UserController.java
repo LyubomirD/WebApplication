@@ -2,6 +2,8 @@ package com.example.web.BackEnd.RestApi.controllers;
 
 import com.example.web.BackEnd.RestApi.models.UserModel;
 import com.example.web.BackEnd.RestApi.services.UserService;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -45,9 +47,8 @@ public class UserController {
             return ResponseEntity.badRequest().body(createdUser);
         }
         if (createdUser == null) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
         return ResponseEntity.status(HttpStatus.CREATED).body(createdUser);
     }
-
 }

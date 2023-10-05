@@ -19,8 +19,8 @@ import java.util.UUID;
 public class UserModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "userid")
-    private UUID userid;
+    @Column(name = "user_id")
+    private UUID user_id;
 
     @NotNull
     @Column(name = "username")
