@@ -24,4 +24,6 @@ public class CategoryModel {
     @Column(name = "genre")
     private String genre;
 
+
+
 }

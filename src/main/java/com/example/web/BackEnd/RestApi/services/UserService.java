@@ -18,10 +18,6 @@ public class UserService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    public List<UserModel> listAllUsers() {
-        return userRepository.findAll();
-    }
-
     public UserModel getUserByEmail(String email) {
         return userRepository.findByEmail(email);
     }

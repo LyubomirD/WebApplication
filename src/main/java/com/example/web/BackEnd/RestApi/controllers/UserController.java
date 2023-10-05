@@ -23,11 +23,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping
-    public List<UserModel> getAllUsers() {
-        return userService.listAllUsers();
-    }
-
     @PostMapping("/login")
     public ResponseEntity<UserModel> getUser() {
         String authenticatedUsername = org.springframework.security.core.context.SecurityContextHolder.getContext().getAuthentication().getName();

@@ -13,6 +13,7 @@ public class BookService {
     @Autowired
     private BookRepository bookRepository;
 
+    //TODO make to not make duplicated books
     public BookModel addNewBook(BookModel bookModel) {
         return bookRepository.save(bookModel);
     }
