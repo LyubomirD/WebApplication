@@ -1,12 +1,15 @@
 package com.example.web.BackEnd.RestApi.models;
 
 
+import javax.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "category")
@@ -23,7 +26,5 @@ public class CategoryModel {
     @NotNull
     @Column(name = "genre")
     private String genre;
-
-
 
 }

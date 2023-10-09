@@ -16,13 +16,13 @@ public class BookController {
     private BookService bookService;
 
     @PostMapping("/new-book")
-    public ResponseEntity<BookModel> addTask(@RequestBody BookModel bookModel) {
+    public ResponseEntity<BookModel> addBook(@RequestBody BookModel bookModel) {
         BookModel newBook = bookService.addNewBook(bookModel);
         return ResponseEntity.status(HttpStatus.CREATED).body(newBook);
     }
 
     @PutMapping("/update-book/{id}")
-    public ResponseEntity<BookModel> updateTask(@PathVariable int id, @RequestBody BookModel bookModel) {
+    public ResponseEntity<BookModel> updateBook(@PathVariable int id, @RequestBody BookModel bookModel) {
         BookModel updateBook = bookService.updateBook(id, bookModel);
 
         if (updateBook != null) {
@@ -33,10 +33,8 @@ public class BookController {
     }
 
     @DeleteMapping("delete-book/{available}")
-    public void removeCompletedTask(@PathVariable boolean available) {
+    public void removeUnavailableBook(@PathVariable boolean available) {
         bookService.removeBook(available);
     }
-
-
 
 }

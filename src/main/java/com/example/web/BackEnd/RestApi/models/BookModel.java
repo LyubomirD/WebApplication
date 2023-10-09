@@ -1,11 +1,14 @@
 package com.example.web.BackEnd.RestApi.models;
 
+import javax.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "books")
@@ -30,4 +33,9 @@ public class BookModel {
     @NotNull
     @Column(name = "available")
     private boolean available;
+
+    //@ManyToMany(mappedBy = "books", fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.EAGER)
+    private Set<CategoryModel> categories = new HashSet<>();
+
 }

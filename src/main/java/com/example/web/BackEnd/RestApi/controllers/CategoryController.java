@@ -15,6 +15,8 @@ public class CategoryController {
     @Autowired
     private CategoryService categoryService;
 
+    //TODO make it when searching for a genre all the books from that genre to be shown
+
     @PostMapping("/category")
     public ResponseEntity<CategoryModel> setCategories(@RequestBody CategoryModel categoryModel) {
         CategoryModel category = categoryService.setNewCategory(categoryModel);

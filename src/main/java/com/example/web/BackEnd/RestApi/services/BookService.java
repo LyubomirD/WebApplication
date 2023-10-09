@@ -1,5 +1,6 @@
 package com.example.web.BackEnd.RestApi.services;
 
+import com.example.web.BackEnd.CustomException.DuplicateBookException;
 import com.example.web.BackEnd.RestApi.models.BookModel;
 import com.example.web.BackEnd.RestApi.repositories.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +14,16 @@ public class BookService {
     @Autowired
     private BookRepository bookRepository;
 
-    //TODO make to not make duplicated books
     public BookModel addNewBook(BookModel bookModel) {
+        String title = bookModel.getTitle();
+        String author = bookModel.getAuthor();
+
+        BookModel existingBook = bookRepository.findByTitleAndAuthor(title, author);
+
+        if (existingBook != null) {
+            throw new DuplicateBookException("A book with the same title and author already exists.");
+        }
+
         return bookRepository.save(bookModel);
     }
 
@@ -25,8 +34,6 @@ public class BookService {
             return null;
         }
 
-        existingBook.setTitle(bookModel.getTitle());
-        existingBook.setAuthor(bookModel.getAuthor());
         existingBook.setAvailable(bookModel.isAvailable());
 
         return bookRepository.save(existingBook);
