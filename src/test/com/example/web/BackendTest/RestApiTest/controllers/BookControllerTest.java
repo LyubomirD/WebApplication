@@ -28,9 +28,6 @@ public class BookControllerTest {
     @Mock
     private BookService bookService;
 
-    @Mock
-    private BookRepository bookRepository;
-
     @BeforeEach
     public void setup() {
         MockitoAnnotations.initMocks(this);

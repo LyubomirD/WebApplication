@@ -12,6 +12,15 @@ public class CategoryService {
     private CategoryRepository categoryRepository;
 
     public CategoryModel setNewCategory(CategoryModel categoryModel) {
+        if (categoryModel.getGenre() == null) {
+            throw new IllegalArgumentException("Genre cannot be null");
+        }
+
+        CategoryModel existingCategory = categoryRepository.findByGenre(categoryModel.getGenre());
+        if (existingCategory != null) {
+            throw new IllegalArgumentException("Genre '" + categoryModel.getGenre() + "' already exists");
+        }
+
         return categoryRepository.save(categoryModel);
     }
 }

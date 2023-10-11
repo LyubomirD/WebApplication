@@ -80,8 +80,10 @@ public class UserModelTest {
         assertEquals("Test!Example123", user.getPassword());
         assertNotNull(user.getBooks());
         assertEquals(2, user.getBooks().size());
+
         Set<CategoryModel> darkTowerCategories = theDarkTower.getCategories();
         Set<CategoryModel> historianCategories = theHistorian.getCategories();
+
         assertTrue(darkTowerCategories.stream().anyMatch(category -> "Horror".equals(category.getGenre())));
         assertTrue(darkTowerCategories.stream().anyMatch(category -> "Fantasy".equals(category.getGenre())));
         assertTrue(historianCategories.stream().anyMatch(category -> "Horror".equals(category.getGenre())));
