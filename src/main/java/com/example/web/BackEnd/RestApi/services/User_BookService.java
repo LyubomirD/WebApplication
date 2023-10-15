@@ -20,12 +20,12 @@ public class User_BookService {
         UserModel user = userRepository.findByEmail(email);
         BookModel book = bookRepository.findByTitle(title);
 
-        if (user != null && book != null) {
-            user.getBooks().add(book);
-            userRepository.save(user);
-            return user;
+        if (user == null || book == null) {
+            return null;
         }
 
-        return null;
+        user.getBooks().add(book);
+        userRepository.save(user);
+        return user;
     }
 }

@@ -24,12 +24,12 @@ public class Book_CategoryService {
         CategoryModel category = categoryRepository.findByGenre(genre);
         BookModel book = bookRepository.findByTitle(title);
 
-        if (category != null && book != null) {
-            book.getCategories().add(category);
-            bookRepository.save(book);
-            return book;
+        if (category == null || book == null) {
+            return null;
         }
 
-        return null;
+        book.getCategories().add(category);
+        bookRepository.save(book);
+        return book;
     }
 }

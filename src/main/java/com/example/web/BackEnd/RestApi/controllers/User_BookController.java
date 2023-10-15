@@ -18,11 +18,11 @@ public class User_BookController {
     public ResponseEntity<UserModel> userGetsBook(@PathVariable String email, @PathVariable String title) {
         UserModel user = userBookService.addBookToUser(email, title);
 
-        if (user != null) {
-            return ResponseEntity.ok(user);
+        if (user == null) {
+            return ResponseEntity.notFound().build();
         }
 
-        return ResponseEntity.notFound().build();
+        return ResponseEntity.ok(user);
     }
 
 }
