@@ -7,14 +7,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/bookGenre")
+@RequestMapping("/addGenreToBook")
 @CrossOrigin(origins = "http://localhost:63342")
 public class Book_CategoryController {
 
     @Autowired
     private Book_CategoryService bookCategoryService;
 
-    //TODO If I search only genre I would be routed by the categoryController if I add a title by this one
     @PostMapping("/{genre}/{title}")
     public ResponseEntity<BookModel> setBookCategory(@PathVariable String genre, @PathVariable String title) {
         BookModel book = bookCategoryService.setBookGenre(genre, title);

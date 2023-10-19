@@ -8,14 +8,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/categorySelection")
+@RequestMapping("/categoryAddition")
 @CrossOrigin(origins = "http://localhost:63342")
 public class CategoryController {
 
     @Autowired
     private CategoryService categoryService;
-
-    //TODO make it when searching for a genre all the books from that genre to be shown
 
     @PostMapping("/category")
     public ResponseEntity<CategoryModel> setCategories(@RequestBody CategoryModel categoryModel) {
