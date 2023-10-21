@@ -34,7 +34,6 @@ public class BookModel {
     @Column(name = "available")
     private boolean available;
 
-    //@ManyToMany(mappedBy = "books", fetch = FetchType.LAZY)
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<CategoryModel> categories = new HashSet<>();
 

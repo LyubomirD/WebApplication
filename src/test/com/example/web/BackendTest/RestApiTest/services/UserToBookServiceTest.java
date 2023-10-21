@@ -4,7 +4,7 @@ import com.example.web.BackEnd.RestApi.models.BookModel;
 import com.example.web.BackEnd.RestApi.models.UserModel;
 import com.example.web.BackEnd.RestApi.repositories.BookRepository;
 import com.example.web.BackEnd.RestApi.repositories.UserRepository;
-import com.example.web.BackEnd.RestApi.services.User_BookService;
+import com.example.web.BackEnd.RestApi.services.UserToBookService;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -19,11 +19,11 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
-@SpringBootTest(classes = User_BookServiceTest.class)
-public class User_BookServiceTest {
+@SpringBootTest(classes = UserToBookServiceTest.class)
+public class UserToBookServiceTest {
 
     @InjectMocks
-    private User_BookService user_bookService;
+    private UserToBookService userTobookService;
 
     @Mock
     private UserRepository userRepository;
@@ -32,7 +32,7 @@ public class User_BookServiceTest {
     private BookRepository bookRepository;
 
     @Test
-    public void testSetUserToBook() {
+    public void testAddBookToUser() {
         String title = "Title";
         String email = "example@example.com";
 
@@ -55,7 +55,7 @@ public class User_BookServiceTest {
         when(user.getEmail()).thenReturn(email);
         when(book.getTitle()).thenReturn(title);
 
-        UserModel setUserToBook = user_bookService.addBookToUser(email, title);
+        UserModel setUserToBook = userTobookService.addBookToUser(email, title);
 
         assertNotNull(setUserToBook.getBooks());
         assertEquals(1, setUserToBook.getBooks().size());
@@ -67,7 +67,7 @@ public class User_BookServiceTest {
     }
 
     @Test
-    public void testUserNotFoundToBook() {
+    public void testBookToUserNotFound() {
         String title = "Title";
         String email = "example@example.com";
 
@@ -87,7 +87,7 @@ public class User_BookServiceTest {
         when(user.getEmail()).thenReturn(null);
         when(book.getTitle()).thenReturn(title);
 
-        UserModel userNotFound = user_bookService.addBookToUser(email, title);
+        UserModel userNotFound = userTobookService.addBookToUser(email, title);
 
         assertNull(userNotFound);
 
@@ -96,7 +96,7 @@ public class User_BookServiceTest {
     }
 
     @Test
-    public void testUserToBookNotFound() {
+    public void testBookNotFoundToUser() {
         String title = "Title";
         String email = "example@example.com";
 
@@ -116,13 +116,62 @@ public class User_BookServiceTest {
         when(user.getEmail()).thenReturn(email);
         when(book.getTitle()).thenReturn(null);
 
-        UserModel bookNotFound = user_bookService.addBookToUser(email, title);
+        UserModel bookNotFound = userTobookService.addBookToUser(email, title);
 
         assertNull(bookNotFound);
 
         verify(userRepository, times(1)).findByEmail(email);
         verify(bookRepository, times(1)).findByTitle(title);
     }
+
+    //TODO write the test statemnts for the removal method in the service
+    @Test
+    public void testRemoveBookFromUser() {
+        String title = "Title";
+        String email = "example@example.com";
+
+        BookModel book = new BookModel();
+        book.setTitle(title);
+        book.setAuthor("Author");
+        book.setAvailable(true);
+
+        UserModel user = new UserModel();
+        user.setUsername("Example");
+        user.setEmail(email);
+        user.setPassword("Example$Pass123");
+
+        when(userRepository.findByEmail(email)).thenReturn(user);
+        when(bookRepository.findByTitle(title)).thenReturn(book);
+
+        List<BookModel> bookModelList = new ArrayList<>();
+
+        when(user.getBooks()).thenReturn(bookModelList);
+        when(user.getEmail()).thenReturn(email);
+        when(book.getTitle()).thenReturn(title);
+
+        UserModel setUserToBook = userTobookService.removeBookFromUser(email, title);
+
+        assertNotNull(setUserToBook.getBooks());
+        assertEquals(0, setUserToBook.getBooks().size());
+
+        assertEquals(user.getUsername(), setUserToBook.getUsername());
+        assertEquals(user.getEmail(), setUserToBook.getEmail());
+        assertEquals(user.getPassword(), setUserToBook.getPassword());
+
+        verify(userRepository, times(1)).save(user);
+        verify(userRepository).findByEmail(email);
+        verify(bookRepository).findByTitle(title);
+    }
+
+    @Test
+    public void testRemoveNotExistingBookFromUser() {
+    }
+
+    @Test
+    public void testRemoveBookFromNotExistingUser() {
+    }
+
+
     @Test
     public void testBothUserAndBookNotFound() {
         String title = "Title";
@@ -141,14 +190,11 @@ public class User_BookServiceTest {
         when(user.getEmail()).thenReturn(null);
         when(book.getTitle()).thenReturn(null);
 
-        UserModel bookNotFound = user_bookService.addBookToUser(email, title);
+        UserModel bookNotFound = userTobookService.addBookToUser(email, title);
 
         assertNull(bookNotFound);
 
         verify(userRepository, times(1)).findByEmail(email);
         verify(bookRepository, times(1)).findByTitle(title);
     }
-
-
-
 }

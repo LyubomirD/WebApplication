@@ -7,8 +7,10 @@ import com.example.web.BackEnd.RestApi.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 @Service
-public class User_BookService {
+public class UserToBookService {
 
     @Autowired
     private UserRepository userRepository;
@@ -25,6 +27,23 @@ public class User_BookService {
         }
 
         user.getBooks().add(book);
+        userRepository.save(user);
+        return user;
+    }
+    @Transactional
+    public UserModel removeBookFromUser(String email, String title) {
+        UserModel user = userRepository.findByEmail(email);
+        BookModel book = bookRepository.findByTitle(title);
+
+        if (user == null) {
+            return null;
+        }
+
+        if (book == null) {
+            return null;
+        }
+
+        user.getBooks().remove(book);
         userRepository.save(user);
         return user;
     }

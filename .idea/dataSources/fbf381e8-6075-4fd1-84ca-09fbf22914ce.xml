@@ -3,15 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.45">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <Grants>1||-9223372036854775808|c|G
-1||10|c|G
-1||10|C|G
-1||10|T|G
-4||-9223372036854775808|c|G
-4||10|c|G
-4||10|C|G
-4||10|T|G</Grants>
-      <IntrospectionStateNumber>1731</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2050</IntrospectionStateNumber>
       <ServerVersion>15.2</ServerVersion>
       <StartupTime>1697722922</StartupTime>
       <TimeZones>true ACDT
@@ -822,7 +814,7 @@ false Zulu
 13471||10|C|G
 13471||-9223372036854775808|U|G
 13471||10|U|G</Grants>
-      <IntrospectionStateNumber>1731</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2050</IntrospectionStateNumber>
       <ObjectId>24576</ObjectId>
       <OwnerName>lubodimoff</OwnerName>
     </database>
@@ -4260,7 +4252,7 @@ false Zulu
     <schema id="266" parent="5" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>1731</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2050</IntrospectionStateNumber>
       <ObjectId>2200</ObjectId>
       <StateNumber>517</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
@@ -4384,14 +4376,14 @@ false Zulu
     </routine>
     <sequence id="278" parent="266" name="books_book_id_seq">
       <DasType>integer|0s</DasType>
-      <ObjectId>42103</ObjectId>
-      <StateNumber>1728</StateNumber>
+      <ObjectId>42735</ObjectId>
+      <StateNumber>2040</StateNumber>
       <OwnerName>lubodimoff</OwnerName>
     </sequence>
     <sequence id="279" parent="266" name="category_category_id_seq">
       <DasType>integer|0s</DasType>
-      <ObjectId>42110</ObjectId>
-      <StateNumber>1729</StateNumber>
+      <ObjectId>42748</ObjectId>
+      <StateNumber>2042</StateNumber>
       <OwnerName>lubodimoff</OwnerName>
     </sequence>
     <sequence id="280" parent="266" name="user_number_seq">
@@ -4401,197 +4393,306 @@ false Zulu
       <OwnerName>lubodimoff</OwnerName>
     </sequence>
     <table id="281" parent="266" name="books">
-      <ObjectId>42104</ObjectId>
-      <StateNumber>1728</StateNumber>
+      <ObjectId>42736</ObjectId>
+      <StateNumber>2047</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>lubodimoff</OwnerName>
     </table>
-    <table id="282" parent="266" name="category">
-      <ObjectId>42111</ObjectId>
-      <StateNumber>1729</StateNumber>
+    <table id="282" parent="266" name="books_categories">
+      <ObjectId>42743</ObjectId>
+      <StateNumber>2046</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>lubodimoff</OwnerName>
     </table>
-    <table id="283" parent="266" name="users">
-      <ObjectId>42098</ObjectId>
-      <StateNumber>1727</StateNumber>
+    <table id="283" parent="266" name="category">
+      <ObjectId>42749</ObjectId>
+      <StateNumber>2046</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>lubodimoff</OwnerName>
     </table>
-    <argument id="284" parent="267">
+    <table id="284" parent="266" name="users">
+      <ObjectId>42754</ObjectId>
+      <StateNumber>2049</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>lubodimoff</OwnerName>
+    </table>
+    <table id="285" parent="266" name="users_books">
+      <ObjectId>42761</ObjectId>
+      <StateNumber>2048</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>lubodimoff</OwnerName>
+    </table>
+    <argument id="286" parent="267">
       <ArgumentDirection>R</ArgumentDirection>
       <DasType>trigger|0s</DasType>
     </argument>
-    <argument id="285" parent="268">
+    <argument id="287" parent="268">
       <ArgumentDirection>R</ArgumentDirection>
       <DasType>uuid|0s</DasType>
     </argument>
-    <argument id="286" parent="269">
+    <argument id="288" parent="269">
       <ArgumentDirection>R</ArgumentDirection>
       <DasType>uuid|0s</DasType>
     </argument>
-    <argument id="287" parent="270">
+    <argument id="289" parent="270">
       <ArgumentDirection>R</ArgumentDirection>
       <DasType>uuid|0s</DasType>
     </argument>
-    <argument id="288" parent="270" name="namespace">
+    <argument id="290" parent="270" name="namespace">
       <DasType>uuid|0s</DasType>
       <Position>1</Position>
     </argument>
-    <argument id="289" parent="270" name="name">
+    <argument id="291" parent="270" name="name">
       <DasType>text|0s</DasType>
       <Position>2</Position>
     </argument>
-    <argument id="290" parent="271">
+    <argument id="292" parent="271">
       <ArgumentDirection>R</ArgumentDirection>
       <DasType>uuid|0s</DasType>
     </argument>
-    <argument id="291" parent="272">
+    <argument id="293" parent="272">
       <ArgumentDirection>R</ArgumentDirection>
       <DasType>uuid|0s</DasType>
     </argument>
-    <argument id="292" parent="272" name="namespace">
+    <argument id="294" parent="272" name="namespace">
       <DasType>uuid|0s</DasType>
       <Position>1</Position>
     </argument>
-    <argument id="293" parent="272" name="name">
+    <argument id="295" parent="272" name="name">
       <DasType>text|0s</DasType>
       <Position>2</Position>
     </argument>
-    <argument id="294" parent="273">
+    <argument id="296" parent="273">
       <ArgumentDirection>R</ArgumentDirection>
       <DasType>uuid|0s</DasType>
     </argument>
-    <argument id="295" parent="274">
+    <argument id="297" parent="274">
       <ArgumentDirection>R</ArgumentDirection>
       <DasType>uuid|0s</DasType>
     </argument>
-    <argument id="296" parent="275">
+    <argument id="298" parent="275">
       <ArgumentDirection>R</ArgumentDirection>
       <DasType>uuid|0s</DasType>
     </argument>
-    <argument id="297" parent="276">
+    <argument id="299" parent="276">
       <ArgumentDirection>R</ArgumentDirection>
       <DasType>uuid|0s</DasType>
     </argument>
-    <argument id="298" parent="277">
+    <argument id="300" parent="277">
       <ArgumentDirection>R</ArgumentDirection>
       <DasType>uuid|0s</DasType>
     </argument>
-    <column id="299" parent="281" name="book_id">
+    <column id="301" parent="281" name="book_id">
       <DasType>integer|0s</DasType>
-      <DefaultExpression>nextval(&apos;books_book_id_seq&apos;::regclass)</DefaultExpression>
+      <IdentityKind>by-default</IdentityKind>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1728</StateNumber>
-      <SequenceId>42103</SequenceId>
+      <StateNumber>2040</StateNumber>
+      <SequenceId>42735</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="300" parent="281" name="title">
-      <DasType>varchar(25)|0s</DasType>
+    <column id="302" parent="281" name="author">
+      <DasType>varchar(255)|0s</DasType>
       <Position>2</Position>
-      <StateNumber>1728</StateNumber>
+      <StateNumber>2040</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="301" parent="281" name="author">
-      <DasType>varchar(25)|0s</DasType>
-      <Position>3</Position>
-      <StateNumber>1728</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="302" parent="281" name="available">
+    <column id="303" parent="281" name="available">
       <DasType>boolean|0s</DasType>
-      <Position>4</Position>
-      <StateNumber>1728</StateNumber>
+      <Position>3</Position>
+      <StateNumber>2040</StateNumber>
       <TypeId>16</TypeId>
     </column>
-    <index id="303" parent="281" name="books_pkey">
-      <ColNames>book_id</ColNames>
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>42108</ObjectId>
-      <Primary>1</Primary>
-      <StateNumber>1728</StateNumber>
-      <Unique>1</Unique>
-      <AccessMethodId>403</AccessMethodId>
-    </index>
-    <key id="304" parent="281" name="books_pkey">
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>42109</ObjectId>
-      <Primary>1</Primary>
-      <StateNumber>1728</StateNumber>
-      <UnderlyingIndexId>42108</UnderlyingIndexId>
-    </key>
-    <column id="305" parent="282" name="category_id">
-      <DasType>integer|0s</DasType>
-      <DefaultExpression>nextval(&apos;category_category_id_seq&apos;::regclass)</DefaultExpression>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StateNumber>1729</StateNumber>
-      <SequenceId>42110</SequenceId>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="306" parent="282" name="genre">
-      <DasType>varchar(25)|0s</DasType>
-      <Position>2</Position>
-      <StateNumber>1729</StateNumber>
+    <column id="304" parent="281" name="title">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>4</Position>
+      <StateNumber>2040</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="307" parent="282" name="category_pkey">
-      <ColNames>category_id</ColNames>
+    <index id="305" parent="281" name="books_pkey">
+      <ColNames>book_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>42115</ObjectId>
+      <ObjectId>42741</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1729</StateNumber>
+      <StateNumber>2040</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="308" parent="282" name="category_pkey">
+    <key id="306" parent="281" name="books_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>42116</ObjectId>
+      <ObjectId>42742</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1729</StateNumber>
-      <UnderlyingIndexId>42115</UnderlyingIndexId>
+      <StateNumber>2040</StateNumber>
+      <UnderlyingIndexId>42741</UnderlyingIndexId>
     </key>
-    <column id="309" parent="283" name="user_id">
+    <column id="307" parent="282" name="book_model_book_id">
+      <DasType>integer|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>2041</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="308" parent="282" name="categories_category_id">
+      <DasType>integer|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StateNumber>2041</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <foreign-key id="309" parent="282" name="fks33gomnf9yo7mquqr6ahg5vv8">
+      <ColNames>book_model_book_id</ColNames>
+      <ObjectId>42771</ObjectId>
+      <RefColNames>book_id</RefColNames>
+      <RefColPositions>1</RefColPositions>
+      <StateNumber>2047</StateNumber>
+      <RefTableId>42736</RefTableId>
+      <RefTableName>books</RefTableName>
+      <RefTableKind>table</RefTableKind>
+    </foreign-key>
+    <foreign-key id="310" parent="282" name="fkfl552fc6s1q0i6f1ty1211lce">
+      <ColNames>categories_category_id</ColNames>
+      <ObjectId>42766</ObjectId>
+      <RefColNames>category_id</RefColNames>
+      <RefColPositions>1</RefColPositions>
+      <StateNumber>2046</StateNumber>
+      <RefTableId>42749</RefTableId>
+      <RefTableName>category</RefTableName>
+      <RefTableKind>table</RefTableKind>
+    </foreign-key>
+    <index id="311" parent="282" name="books_categories_pkey">
+      <ColNames>book_model_book_id
+categories_category_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>42746</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>2041</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="312" parent="282" name="books_categories_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>42747</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>2041</StateNumber>
+      <UnderlyingIndexId>42746</UnderlyingIndexId>
+    </key>
+    <column id="313" parent="283" name="category_id">
+      <DasType>integer|0s</DasType>
+      <IdentityKind>by-default</IdentityKind>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>2042</StateNumber>
+      <SequenceId>42748</SequenceId>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="314" parent="283" name="genre">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>2</Position>
+      <StateNumber>2042</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="315" parent="283" name="category_pkey">
+      <ColNames>category_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>42752</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>2042</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="316" parent="283" name="category_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>42753</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>2042</StateNumber>
+      <UnderlyingIndexId>42752</UnderlyingIndexId>
+    </key>
+    <column id="317" parent="284" name="user_id">
       <DasType>uuid|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1727</StateNumber>
+      <StateNumber>2043</StateNumber>
       <TypeId>2950</TypeId>
     </column>
-    <column id="310" parent="283" name="username">
-      <DasType>varchar(25)|0s</DasType>
+    <column id="318" parent="284" name="email">
+      <DasType>varchar(255)|0s</DasType>
       <Position>2</Position>
-      <StateNumber>1727</StateNumber>
+      <StateNumber>2043</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="311" parent="283" name="email">
-      <DasType>varchar(50)|0s</DasType>
+    <column id="319" parent="284" name="password">
+      <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
-      <StateNumber>1727</StateNumber>
+      <StateNumber>2043</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="312" parent="283" name="password">
-      <DasType>varchar(50)|0s</DasType>
+    <column id="320" parent="284" name="username">
+      <DasType>varchar(255)|0s</DasType>
       <Position>4</Position>
-      <StateNumber>1727</StateNumber>
+      <StateNumber>2043</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="313" parent="283" name="users_pkey">
+    <index id="321" parent="284" name="users_pkey">
       <ColNames>user_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>42101</ObjectId>
+      <ObjectId>42759</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1727</StateNumber>
+      <StateNumber>2043</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="314" parent="283" name="users_pkey">
+    <key id="322" parent="284" name="users_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>42102</ObjectId>
+      <ObjectId>42760</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1727</StateNumber>
-      <UnderlyingIndexId>42101</UnderlyingIndexId>
+      <StateNumber>2043</StateNumber>
+      <UnderlyingIndexId>42759</UnderlyingIndexId>
+    </key>
+    <column id="323" parent="285" name="user_model_user_id">
+      <DasType>uuid|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>2044</StateNumber>
+      <TypeId>2950</TypeId>
+    </column>
+    <column id="324" parent="285" name="books_book_id">
+      <DasType>integer|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StateNumber>2044</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <foreign-key id="325" parent="285" name="fkayqvtfb1y9mbh6exngnr75lyc">
+      <ColNames>user_model_user_id</ColNames>
+      <ObjectId>42781</ObjectId>
+      <RefColNames>user_id</RefColNames>
+      <RefColPositions>1</RefColPositions>
+      <StateNumber>2049</StateNumber>
+      <RefTableId>42754</RefTableId>
+      <RefTableName>users</RefTableName>
+      <RefTableKind>table</RefTableKind>
+    </foreign-key>
+    <foreign-key id="326" parent="285" name="fkstrk76p0mty3nm86pkerrshpu">
+      <ColNames>books_book_id</ColNames>
+      <ObjectId>42776</ObjectId>
+      <RefColNames>book_id</RefColNames>
+      <RefColPositions>1</RefColPositions>
+      <StateNumber>2048</StateNumber>
+      <RefTableId>42736</RefTableId>
+      <RefTableName>books</RefTableName>
+      <RefTableKind>table</RefTableKind>
+    </foreign-key>
+    <index id="327" parent="285" name="uk_mxjc2f39b5swx89hq754if9dm">
+      <ColNames>books_book_id</ColNames>
+      <ObjectId>42764</ObjectId>
+      <StateNumber>2045</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="328" parent="285" name="uk_mxjc2f39b5swx89hq754if9dm">
+      <ObjectId>42765</ObjectId>
+      <StateNumber>2045</StateNumber>
+      <UnderlyingIndexId>42764</UnderlyingIndexId>
     </key>
   </database-model>
 </dataSource>

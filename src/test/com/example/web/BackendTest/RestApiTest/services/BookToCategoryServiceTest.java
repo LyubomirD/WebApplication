@@ -4,7 +4,7 @@ import com.example.web.BackEnd.RestApi.models.BookModel;
 import com.example.web.BackEnd.RestApi.models.CategoryModel;
 import com.example.web.BackEnd.RestApi.repositories.BookRepository;
 import com.example.web.BackEnd.RestApi.repositories.CategoryRepository;
-import com.example.web.BackEnd.RestApi.services.Book_CategoryService;
+import com.example.web.BackEnd.RestApi.services.BookToCategoryService;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -19,11 +19,11 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.when;
 
-@SpringBootTest(classes = Book_CategoryServiceTest.class)
-public class Book_CategoryServiceTest {
+@SpringBootTest(classes = BookToCategoryServiceTest.class)
+public class BookToCategoryServiceTest {
 
     @InjectMocks
-    private Book_CategoryService book_categoryService;
+    private BookToCategoryService bookTocategoryService;
 
     @Mock
     private BookRepository bookRepository;
@@ -48,7 +48,7 @@ public class Book_CategoryServiceTest {
         when(bookRepository.findByTitle(title)).thenReturn(book);
         when(categoryRepository.findByGenre(genre)).thenReturn(category);
 
-        BookModel setBookIntoCategory = book_categoryService.setBookGenre(genre, title);
+        BookModel setBookIntoCategory = bookTocategoryService.setBookGenre(genre, title);
 
         assertNotNull(setBookIntoCategory.getCategories());
         assertEquals(1, setBookIntoCategory.getCategories().size());
@@ -81,8 +81,8 @@ public class Book_CategoryServiceTest {
         when(categoryRepository.findByGenre(genre)).thenReturn(category);
         when(categoryRepository.findByGenre(newGenre)).thenReturn(secondCategory);
 
-        BookModel existingBook = book_categoryService.setBookGenre(genre, title);
-        existingBook = book_categoryService.setBookGenre(newGenre, title);
+        BookModel existingBook = bookTocategoryService.setBookGenre(genre, title);
+        existingBook = bookTocategoryService.setBookGenre(newGenre, title);
 
         assertNotNull(existingBook.getCategories());
         assertNotEquals(existingBook.getCategories().isEmpty(), true);
@@ -111,7 +111,7 @@ public class Book_CategoryServiceTest {
         when(categoryRepository.findByGenre(genre)).thenReturn(category);
         when(bookRepository.findByTitle(notExistingTitle)).thenReturn(null);
 
-        BookModel notExistingBook = book_categoryService.setBookGenre(genre, notExistingTitle);
+        BookModel notExistingBook = bookTocategoryService.setBookGenre(genre, notExistingTitle);
 
         assertNull(notExistingBook);
 
@@ -131,7 +131,7 @@ public class Book_CategoryServiceTest {
         when(bookRepository.findByTitle(title)).thenReturn(book);
         when(categoryRepository.findByGenre(notExistingGenre)).thenReturn(null);
 
-        BookModel notExistingGenreOfBook = book_categoryService.setBookGenre(notExistingGenre, title);
+        BookModel notExistingGenreOfBook = bookTocategoryService.setBookGenre(notExistingGenre, title);
 
         assertNull(notExistingGenreOfBook);
 
@@ -146,7 +146,7 @@ public class Book_CategoryServiceTest {
         when(bookRepository.findByTitle(notExistingTitle)).thenReturn(null);
         when(categoryRepository.findByGenre(notExistingGenre)).thenReturn(null);
 
-        BookModel notExistingGenreAndBook = book_categoryService.setBookGenre(notExistingGenre, notExistingTitle);
+        BookModel notExistingGenreAndBook = bookTocategoryService.setBookGenre(notExistingGenre, notExistingTitle);
 
         assertNull(notExistingGenreAndBook);
 

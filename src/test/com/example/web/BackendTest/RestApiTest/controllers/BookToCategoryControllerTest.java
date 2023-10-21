@@ -1,11 +1,8 @@
 package com.example.web.BackendTest.RestApiTest.controllers;
 
-import com.example.web.BackEnd.RestApi.controllers.BookController;
-import com.example.web.BackEnd.RestApi.controllers.Book_CategoryController;
+import com.example.web.BackEnd.RestApi.controllers.BookToCategoryController;
 import com.example.web.BackEnd.RestApi.models.BookModel;
-import com.example.web.BackEnd.RestApi.models.CategoryModel;
-import com.example.web.BackEnd.RestApi.services.BookService;
-import com.example.web.BackEnd.RestApi.services.Book_CategoryService;
+import com.example.web.BackEnd.RestApi.services.BookToCategoryService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -15,20 +12,17 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
-@SpringBootTest(classes = Book_CategoryControllerTest.class)
-public class Book_CategoryControllerTest {
+@SpringBootTest(classes = BookToCategoryControllerTest.class)
+public class BookToCategoryControllerTest {
 
     @InjectMocks
-    private Book_CategoryController book_categoryController;
+    private BookToCategoryController bookTocategoryController;
 
     @Mock
-    private Book_CategoryService book_categoryService;
+    private BookToCategoryService bookTocategoryService;
 
     @BeforeEach
     public void setup() {
@@ -44,9 +38,9 @@ public class Book_CategoryControllerTest {
         mockBook.setAuthor("John Doe");
         mockBook.setAvailable(true);
 
-        when(book_categoryService.setBookGenre(genre, title)).thenReturn(mockBook);
+        when(bookTocategoryService.setBookGenre(genre, title)).thenReturn(mockBook);
 
-        ResponseEntity<BookModel> responseEntity = book_categoryController.setBookCategory(genre, title);
+        ResponseEntity<BookModel> responseEntity = bookTocategoryController.setBookCategory(genre, title);
 
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
         assertEquals(mockBook, responseEntity.getBody());
@@ -57,9 +51,9 @@ public class Book_CategoryControllerTest {
         String genre = "NonexistentGenre";
         String title = "NonexistentTitle";
 
-        when(book_categoryService.setBookGenre(genre, title)).thenReturn(null);
+        when(bookTocategoryService.setBookGenre(genre, title)).thenReturn(null);
 
-        ResponseEntity<BookModel> responseEntity = book_categoryController.setBookCategory(genre, title);
+        ResponseEntity<BookModel> responseEntity = bookTocategoryController.setBookCategory(genre, title);
 
         assertEquals(HttpStatus.NOT_FOUND, responseEntity.getStatusCode());
     }

@@ -2,16 +2,13 @@ package com.example.web.BackEnd.RestApi.services;
 
 import com.example.web.BackEnd.RestApi.models.BookModel;
 import com.example.web.BackEnd.RestApi.models.CategoryModel;
-import com.example.web.BackEnd.RestApi.models.UserModel;
 import com.example.web.BackEnd.RestApi.repositories.BookRepository;
 import com.example.web.BackEnd.RestApi.repositories.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 
 @Service
-public class Book_CategoryService {
+public class BookToCategoryService {
 
     @Autowired
     private CategoryRepository categoryRepository;
@@ -33,13 +30,4 @@ public class Book_CategoryService {
         return book;
     }
 
-    public boolean doesGenreExist(String genre) {
-        CategoryModel category = categoryRepository.findByGenre(genre);
-
-        if (category == null) {
-            return false;
-        }
-
-        return true;
-    }
 }
