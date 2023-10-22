@@ -25,10 +25,10 @@ import static org.mockito.Mockito.*;
 public class SearchBookByCategoryControllerTest {
 
     @InjectMocks
-    private SearchBookByCategoryController controller;
+    private SearchBookByCategoryController searchController;
 
     @Mock
-    private SearchBookByCategoryService service;
+    private SearchBookByCategoryService searchService;
 
     @BeforeEach
     public void setUp() {
@@ -51,9 +51,9 @@ public class SearchBookByCategoryControllerTest {
         List<BookModel> listBooks = new ArrayList<>();
         listBooks.add(mockBook);
 
-        when(service.findByGenre(genre)).thenReturn(listBooks);
+        when(searchService.findByGenre(genre)).thenReturn(listBooks);
 
-        List<BookModel> result = controller.getBooksByGenre(genre);
+        List<BookModel> result = searchController.getBooksByGenre(genre);
 
         assertNotNull(result);
         assertEquals(1, result.size());
@@ -65,9 +65,9 @@ public class SearchBookByCategoryControllerTest {
     @Test
     public void testProvidingInvalidGenreToSearchForBookList() {
         String invalidGenre = "InvalidGenre";
-        when(service.findByGenre(invalidGenre)).thenReturn(new ArrayList<>());
+        when(searchService.findByGenre(invalidGenre)).thenReturn(new ArrayList<>());
 
-        List<BookModel> result = controller.getBooksByGenre(invalidGenre);
+        List<BookModel> result = searchController.getBooksByGenre(invalidGenre);
 
         assertNotNull(result);
         assertEquals(0, result.size());
@@ -76,9 +76,9 @@ public class SearchBookByCategoryControllerTest {
     @Test
     public void testProvidingInvalidNullGenreToSearchForBookList() {
         String nullGenre = null;
-        when(service.findByGenre(nullGenre)).thenReturn(new ArrayList<>());
+        when(searchService.findByGenre(nullGenre)).thenReturn(new ArrayList<>());
 
-        List<BookModel> result = controller.getBooksByGenre(nullGenre);
+        List<BookModel> result = searchController.getBooksByGenre(nullGenre);
 
         assertNotNull(result);
         assertEquals(0, result.size());
@@ -98,12 +98,12 @@ public class SearchBookByCategoryControllerTest {
         mockBook.setAvailable(true);
         mockBook.setCategories(Set.of(mockCategory));
 
-        when(service.getBookByGenre(title, genre)).thenReturn(mockBook);
+        when(searchService.getBookByGenre(title, genre)).thenReturn(mockBook);
 
-        ResponseEntity<BookModel> responseEntity = controller.getBookCategory(title, genre);
+        ResponseEntity<BookModel> responseEntity = searchController.getBookCategory(title, genre);
 
         assertNotNull(responseEntity);
-        verify(service).getBookByGenre(title, genre);
+        verify(searchService).getBookByGenre(title, genre);
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
     }
 
@@ -121,12 +121,12 @@ public class SearchBookByCategoryControllerTest {
         mockBook.setAvailable(true);
         mockBook.setCategories(Set.of(mockCategory));
 
-        when(service.getBookByGenre(genre, title)).thenReturn(mockBook);
+        when(searchService.getBookByGenre(genre, title)).thenReturn(mockBook);
 
-        ResponseEntity<BookModel> responseEntity = controller.getBookCategory(genre, title);
+        ResponseEntity<BookModel> responseEntity = searchController.getBookCategory(genre, title);
 
         assertNotNull(responseEntity);
-        verify(service).getBookByGenre(genre, title);
+        verify(searchService).getBookByGenre(genre, title);
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
     }
 
@@ -141,12 +141,12 @@ public class SearchBookByCategoryControllerTest {
         BookModel mockBook = new BookModel();
         mockBook.setCategories(Set.of(mockCategory));
 
-        when(service.getBookByGenre(genre, title)).thenReturn(null);
+        when(searchService.getBookByGenre(genre, title)).thenReturn(null);
 
-        ResponseEntity<BookModel> responseEntity = controller.getBookCategory(genre, title);
+        ResponseEntity<BookModel> responseEntity = searchController.getBookCategory(genre, title);
 
         assertNotNull(responseEntity);
-        verify(service).getBookByGenre(genre, title);
+        verify(searchService).getBookByGenre(genre, title);
         assertEquals(HttpStatus.NOT_FOUND, responseEntity.getStatusCode());
     }
 
@@ -163,12 +163,12 @@ public class SearchBookByCategoryControllerTest {
         mockBook.setAvailable(true);
         mockBook.setCategories(Set.of(mockCategory));
 
-        when(service.getBookByGenre(genre, title)).thenReturn(null);
+        when(searchService.getBookByGenre(genre, title)).thenReturn(null);
 
-        ResponseEntity<BookModel> responseEntity = controller.getBookCategory(genre, title);
+        ResponseEntity<BookModel> responseEntity = searchController.getBookCategory(genre, title);
 
         assertNotNull(responseEntity);
-        verify(service).getBookByGenre(genre, title);
+        verify(searchService).getBookByGenre(genre, title);
         assertEquals(HttpStatus.NOT_FOUND, responseEntity.getStatusCode());
     }
 
@@ -186,12 +186,12 @@ public class SearchBookByCategoryControllerTest {
         mockBook.setAvailable(true);
         mockBook.setCategories(Set.of(mockCategory));
 
-        when(service.getBookByGenre(genre, title)).thenReturn(null);
+        when(searchService.getBookByGenre(genre, title)).thenReturn(null);
 
-        ResponseEntity<BookModel> responseEntity = controller.getBookCategory(genre, title);
+        ResponseEntity<BookModel> responseEntity = searchController.getBookCategory(genre, title);
 
         assertNotNull(responseEntity);
-        verify(service).getBookByGenre(genre, title);
+        verify(searchService).getBookByGenre(genre, title);
         assertEquals(HttpStatus.NOT_FOUND, responseEntity.getStatusCode());
     }
 
@@ -209,12 +209,12 @@ public class SearchBookByCategoryControllerTest {
         mockBook.setAvailable(true);
         mockBook.setCategories(Set.of(mockCategory));
 
-        when(service.getBookByGenre(genre, title)).thenReturn(null);
+        when(searchService.getBookByGenre(genre, title)).thenReturn(null);
 
-        ResponseEntity<BookModel> responseEntity = controller.getBookCategory(genre, title);
+        ResponseEntity<BookModel> responseEntity = searchController.getBookCategory(genre, title);
 
         assertNotNull(responseEntity);
-        verify(service).getBookByGenre(genre, title);
+        verify(searchService).getBookByGenre(genre, title);
         assertEquals(HttpStatus.NOT_FOUND, responseEntity.getStatusCode());
     }
 
@@ -223,12 +223,12 @@ public class SearchBookByCategoryControllerTest {
         String genre = null;
         String title = null;
 
-        when(service.getBookByGenre(genre, title)).thenReturn(null);
+        when(searchService.getBookByGenre(genre, title)).thenReturn(null);
 
-        ResponseEntity<BookModel> responseEntity = controller.getBookCategory(genre, title);
+        ResponseEntity<BookModel> responseEntity = searchController.getBookCategory(genre, title);
 
         assertNotNull(responseEntity);
-        verify(service).getBookByGenre(genre, title);
+        verify(searchService).getBookByGenre(genre, title);
         assertEquals(HttpStatus.NOT_FOUND, responseEntity.getStatusCode());
     }
 }

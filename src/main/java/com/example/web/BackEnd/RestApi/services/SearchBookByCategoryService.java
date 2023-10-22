@@ -2,7 +2,6 @@ package com.example.web.BackEnd.RestApi.services;
 
 import com.example.web.BackEnd.RestApi.models.BookModel;
 import com.example.web.BackEnd.RestApi.models.CategoryModel;
-import com.example.web.BackEnd.RestApi.models.UserModel;
 import com.example.web.BackEnd.RestApi.repositories.BookRepository;
 import com.example.web.BackEnd.RestApi.repositories.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
