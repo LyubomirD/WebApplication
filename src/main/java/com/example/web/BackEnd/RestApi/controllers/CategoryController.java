@@ -8,14 +8,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/categoryAddition")
+@RequestMapping("/managerNewCategories")
 @CrossOrigin(origins = "http://localhost:63342")
 public class CategoryController {
 
     @Autowired
     private CategoryService categoryService;
 
-    @PostMapping("/category")
+    @PostMapping()
     public ResponseEntity<CategoryModel> setCategories(@RequestBody CategoryModel categoryModel) {
         CategoryModel category = categoryService.setNewCategory(categoryModel);
         return ResponseEntity.status(HttpStatus.CREATED).body(category);

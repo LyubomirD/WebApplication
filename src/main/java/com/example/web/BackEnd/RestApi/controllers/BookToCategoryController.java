@@ -7,16 +7,16 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/addGenreToBook")
+@RequestMapping("/managerAddCategoriesToBooks")
 @CrossOrigin(origins = "http://localhost:63342")
 public class BookToCategoryController {
 
     @Autowired
     private BookToCategoryService bookCategoryService;
 
-    @PostMapping("/{genre}/{title}")
-    public ResponseEntity<BookModel> setBookCategory(@PathVariable String genre, @PathVariable String title) {
-        BookModel book = bookCategoryService.setBookGenre(genre, title);
+    @PostMapping("/{param1}/{param2}")
+    public ResponseEntity<BookModel> setBookCategory(@PathVariable String param1, @PathVariable String param2) {
+        BookModel book = bookCategoryService.setBookGenre(param1, param2);
 
         if (book == null) {
             return ResponseEntity.notFound().build();

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/searchGenreBook")
+@RequestMapping("/userSearchBooks")
 @CrossOrigin(origins = "http://localhost:63342")
 public class SearchBookByCategoryController {
 

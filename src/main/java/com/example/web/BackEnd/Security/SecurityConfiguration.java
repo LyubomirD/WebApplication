@@ -32,11 +32,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/usersRegistration/**").permitAll()
-                .antMatchers("/bookManager/**").permitAll()
-                .antMatchers("/userBookOrder/**").permitAll()
-                .antMatchers("/categoryAddition/**").permitAll()
-                .antMatchers("/addGenreToBook/**").permitAll()
-                .antMatchers("/searchGenreBook/**").permitAll()
+                .antMatchers("/managerBooks/**").permitAll()
+                .antMatchers("/managerNewCategories/**").permitAll()
+                .antMatchers("/managerAddCategoriesToBooks/**").permitAll()
+                .antMatchers("/userSearchBooks/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -45,16 +44,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .httpBasic()
                 .and()
-
-                //TODO create logout page
                 .logout()
                 .logoutUrl("/logout")
                 .logoutSuccessUrl("/goodbye")
                 .permitAll()
-
                 .and()
-                .cors()
-                .and()
+                .cors().disable()
                 .csrf().disable();
     }
 

@@ -1,27 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>HomePage</title>
     <link rel="stylesheet" href="HomePageStyle.css">
     <script src="HomePage.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>OnlineLibrary</title>
 </head>
+<header>
+    <h1>Logo</h1>
+    <nav>
+        <a href="http://localhost:63342/web/com/example/web/FrontEnd/Users_Registration/LoginPage/UserLoginPage.html">Login</a>
+        <a href="http://localhost:63342/web/com/example/web/FrontEnd/Users_Registration/SignUpPage/UserSignUp.html">Sign Up</a>
+    </nav>
+</header>
 <body>
-<div class="container">
-    <div id="navigation">
-        <h1 id="welcomeMessage">Welcome!</h1>
-        <nav>
-            <ul>
-                <li>
-                    <a href="http://localhost:63342/web/com/example/web/FrontEnd/Users_Registration/LoginPage/UserLoginPage.html">Login</a>
-                </li>
-            </ul>
-        </nav>
+<div class="search-bar">
+    <input type="text" placeholder="Search for products">
+    <button>Search</button>
+</div>
+
+<div id="products">
+    <div class="product">
+        <h2>Product 1</h2>
+        <p>Description of Product 1</p>
+        <button class="add-button">Add to Cart</button>
     </div>
-    <div id="homepage">
-        <p>Information about the web application</p>
+
+    <div class="product">
+        <h2>Product 2</h2>
+        <p>Description of Product 2</p>
+        <button class="add-button">Add to Cart</button>
     </div>
+
 </div>
 </body>
 </html>

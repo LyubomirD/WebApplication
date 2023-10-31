@@ -9,7 +9,7 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
     const credentials = btoa(email + ':' + password);
 
     fetch('http://localhost:8081/usersRegistration/login', {
-        method: 'GET',
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'Authorization': "Basic " + credentials

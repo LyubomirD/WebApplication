@@ -17,7 +17,17 @@ public class BookToCategoryService {
     private BookRepository bookRepository;
 
 
-    public BookModel setBookGenre(String genre, String title) {
+    public BookModel setBookGenre(String param1, String param2) {
+        String title, genre;
+
+        if (doesTitleExist(param1)) {
+            title = param1;
+            genre = param2;
+        } else {
+            title = param2;
+            genre = param1;
+        }
+
         CategoryModel category = categoryRepository.findByGenre(genre);
         BookModel book = bookRepository.findByTitle(title);
 
@@ -28,6 +38,16 @@ public class BookToCategoryService {
         book.getCategories().add(category);
         bookRepository.save(book);
         return book;
+    }
+
+    private boolean doesTitleExist(String title) {
+        BookModel book = bookRepository.findByTitle(title);
+
+        if (book == null) {
+            return false;
+        }
+
+        return true;
     }
 
 }

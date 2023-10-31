@@ -10,14 +10,14 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/usersRegistration/login")
+@RequestMapping("/usersRegistration/login/userBookOrder")
 @CrossOrigin(origins = "http://localhost:63342")
 public class UserToBookController {
 
     @Autowired
     private UserToBookService userBookService;
 
-    @PostMapping("/userBookOrder/{title}")
+    @PostMapping("/Add/{title}")
     public ResponseEntity<UserModel> addBookToUserList(@PathVariable String title) {
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String email = userDetails.getUsername();
@@ -30,7 +30,7 @@ public class UserToBookController {
         return ResponseEntity.ok(user);
     }
 
-    @PutMapping("/userBookOrder/{title}")
+    @PutMapping("/Remove/{title}")
     public ResponseEntity<UserModel> removeBookFromUserList(@PathVariable String title) {
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String email = userDetails.getUsername();

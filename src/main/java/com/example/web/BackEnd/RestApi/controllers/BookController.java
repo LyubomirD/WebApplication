@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/bookManager")
+@RequestMapping("/managerBooks")
 @CrossOrigin(origins = "http://localhost:63342")
 public class BookController {
 
